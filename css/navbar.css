@@ -1,0 +1,132 @@
+/* AAR Royal Residency - Navbar Styling */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+}
+/* .container{
+    width: auto;
+} */
+
+/* Header style when scrolled */
+.header-container.scrolled {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    transition: var(--transition);
+}
+
+.header-container.scrolled .navbar {
+    padding: 10px 0;
+}
+
+/* Brand Logo */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.brand-logo img {
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.header-container.scrolled .brand-logo img {
+    height: 50px;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+}
+
+/* Nav Menu Desktop */
+.nav-menu {
+    display: flex;
+    margin-left: 140px;
+    list-style: none;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding: var(--spacing-xs) 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-accent);
+}
+
+/* Header CTA */
+.header-cta .btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+}
+
+/* Hamburger Toggle Button */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #FFFFFF;
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* Mobile Nav Open state for toggle */
+.nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}

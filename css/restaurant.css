@@ -1,0 +1,194 @@
+/* AAR Royal Residency - Restaurant Styles */
+
+/* Intro Layout */
+.restaurant-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.restaurant-intro-img {
+    height: 250px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.restaurant-intro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Menu Split - Veg vs Non-Veg */
+.menu-split-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.menu-column {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1.5px solid rgba(212, 175, 55, 0.1);
+}
+
+.menu-column h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-column.veg h3 {
+    color: #2E7D32;
+}
+
+.menu-column.non-veg h3 {
+    color: var(--color-primary);
+}
+
+.menu-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px dashed rgba(108, 99, 100, 0.25);
+}
+
+.menu-item-details {
+    flex: 1;
+    padding-right: var(--spacing-sm);
+}
+
+.menu-item-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-item-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.menu-item-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Dine In Seating Gallery */
+.dining-gallery {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Table Booking Form styling */
+.reservation-section {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    border: 2px solid var(--color-accent);
+}
+
+.reservation-section h2 {
+    color: #FFFFFF;
+}
+
+.reservation-section h2::after {
+    background-color: var(--color-accent);
+}
+
+.reservation-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    align-items: flex-end;
+}
+
+.reservation-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-field label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.reservation-field input,
+.reservation-field select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-bottom: 2px solid rgba(250, 247, 242, 0.3);
+    color: #FFFFFF;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: var(--transition);
+}
+
+.reservation-field input:focus,
+.reservation-field select:focus {
+    border-bottom-color: var(--color-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.reservation-field select option {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.reservation-section .btn {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .restaurant-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .restaurant-intro-img {
+        height: 380px;
+    }
+
+    .menu-split-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .reservation-form {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .reservation-form {
+        grid-template-columns: repeat(3, 1fr) auto;
+    }
+}

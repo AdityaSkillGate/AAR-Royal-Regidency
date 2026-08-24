@@ -1,0 +1,179 @@
+/* AAR Royal Residency - Footer Styling */
+.footer {
+    background-color: var(--color-primary);
+    color: #FAF7F2;
+    padding: var(--spacing-xl) 0 var(--spacing-sm);
+    border-top: 3px solid var(--color-accent);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-col h4 {
+    color: var(--color-accent);
+    font-size: 1.15rem;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Col 1: About & Social */
+.footer-about p {
+    color: rgba(250, 247, 242, 0.7);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #FFFFFF;
+    stroke: none;
+    transition: var(--transition);
+}
+
+.social-icon:hover svg {
+    fill: var(--color-primary);
+}
+
+/* Col 2: Quick Links */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(250, 247, 242, 0.7);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a::before {
+    content: '•';
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: var(--transition);
+    margin-left: -12px;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+    padding-left: 12px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+/* Col 3: Contact Info */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-item svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.contact-item span {
+    color: rgba(250, 247, 242, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Col 4: Location Map Preview */
+.footer-map-preview {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    overflow: hidden;
+    height: 150px;
+    position: relative;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.footer-map-preview:hover {
+    border-color: var(--color-accent);
+}
+
+.footer-map-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(250, 247, 242, 0.15);
+    padding-top: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(250, 247, 242, 0.5);
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1.2fr 1.5fr 1.3fr;
+        gap: var(--spacing-lg);
+    }
+}

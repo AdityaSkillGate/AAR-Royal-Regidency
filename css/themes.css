@@ -1,0 +1,210 @@
+/* ================================================================
+   AAR Royal Residency — Per-Page Unique Theme Colour System
+   Each page gets its own :root override injected via <style> tag.
+   This file documents the per-page colour tokens.
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   PAGE THEME TOKENS (applied per-page via body class or inline)
+--------------------------------------------------------------- */
+
+/* HOME PAGE — Royal Grand Welcome
+   Accent: Champagne Gold | Highlight: Imperial Burgundy */
+body.page-home {
+    --page-accent: #D4AF37;
+    --page-accent-dark: #AA841F;
+    --page-hero-overlay: rgba(45, 37, 38, 0.45);
+    --page-badge-color: #D4AF37;
+    --page-section-bg: #FAF7F2;
+    --page-btn-hover: #96001E;
+    --page-card-border: rgba(212, 175, 55, 0.18);
+    --page-card-shadow-hover: rgba(122, 0, 22, 0.09);
+}
+
+/* ROOMS PAGE — Warm Amber Comfort
+   Accent: Warm Amber | Highlight: Rich Copper */
+body.page-rooms {
+    --page-accent: #C87941;
+    --page-accent-dark: #A0602E;
+    --page-hero-overlay: rgba(40, 20, 10, 0.52);
+    --page-badge-color: #C87941;
+    --page-section-bg: #FBF6F0;
+    --page-btn-hover: #A0602E;
+    --page-card-border: rgba(200, 121, 65, 0.18);
+    --page-card-shadow-hover: rgba(160, 96, 46, 0.1);
+}
+
+/* RESTAURANT PAGE — Culinary Forest Green
+   Accent: Olive Forest | Highlight: Deep Herb */
+body.page-restaurant {
+    --page-accent: #2E7D32;
+    --page-accent-dark: #1B5E20;
+    --page-hero-overlay: rgba(10, 30, 15, 0.55);
+    --page-badge-color: #4CAF50;
+    --page-section-bg: #F4FAF5;
+    --page-btn-hover: #1B5E20;
+    --page-card-border: rgba(46, 125, 50, 0.15);
+    --page-card-shadow-hover: rgba(27, 94, 32, 0.08);
+}
+
+/* FACILITIES PAGE — Professional Steel Blue
+   Accent: Deep Ocean Blue | Highlight: Navy Trust */
+body.page-facilities {
+    --page-accent: #1A5276;
+    --page-accent-dark: #154360;
+    --page-hero-overlay: rgba(10, 20, 40, 0.55);
+    --page-badge-color: #2E86C1;
+    --page-section-bg: #F0F6FB;
+    --page-btn-hover: #154360;
+    --page-card-border: rgba(26, 82, 118, 0.15);
+    --page-card-shadow-hover: rgba(21, 67, 96, 0.1);
+}
+
+/* ATTRACTIONS PAGE — Nature Explorer Teal
+   Accent: Deep Teal | Highlight: Forest Jade */
+body.page-attractions {
+    --page-accent: #0E6655;
+    --page-accent-dark: #0B4F40;
+    --page-hero-overlay: rgba(5, 30, 25, 0.55);
+    --page-badge-color: #1ABC9C;
+    --page-section-bg: #F0FAF8;
+    --page-btn-hover: #0B4F40;
+    --page-card-border: rgba(14, 102, 85, 0.15);
+    --page-card-shadow-hover: rgba(11, 79, 64, 0.08);
+}
+
+/* GALLERY PAGE — Artful Royal Plum
+   Accent: Plum Purple | Highlight: Deep Violet */
+body.page-gallery {
+    --page-accent: #6C3483;
+    --page-accent-dark: #512E5F;
+    --page-hero-overlay: rgba(25, 10, 40, 0.58);
+    --page-badge-color: #9B59B6;
+    --page-section-bg: #F9F4FC;
+    --page-btn-hover: #512E5F;
+    --page-card-border: rgba(108, 52, 131, 0.15);
+    --page-card-shadow-hover: rgba(81, 46, 95, 0.1);
+}
+
+/* CONTACT PAGE — Professional Slate Charcoal
+   Accent: Midnight Charcoal | Highlight: Steel Navy */
+body.page-contact {
+    --page-accent: #2C3E50;
+    --page-accent-dark: #1A252F;
+    --page-hero-overlay: rgba(20, 25, 35, 0.58);
+    --page-badge-color: #5D6D7E;
+    --page-section-bg: #F2F3F4;
+    --page-btn-hover: #1A252F;
+    --page-card-border: rgba(44, 62, 80, 0.15);
+    --page-card-shadow-hover: rgba(26, 37, 47, 0.1);
+}
+
+/* ---------------------------------------------------------------
+   SHARED PAGE-THEME UTILITIES
+   These use the --page-* tokens above
+--------------------------------------------------------------- */
+
+/* Page banner overlay tint */
+.page-banner::before {
+    background-color: var(--page-hero-overlay, rgba(45, 37, 38, 0.6));
+}
+
+/* Badge accent colour override per-page */
+.badge-gold {
+    color: var(--page-badge-color, var(--color-accent-dark));
+}
+
+/* Section background override per-page */
+.bg-secondary {
+    background-color: var(--page-section-bg, var(--color-bg-secondary));
+}
+
+/* H2 underline accent override per-page */
+h2::after {
+    background-color: var(--page-accent, var(--color-accent));
+}
+
+/* Card border and shadow overrides */
+.luxury-card,
+.room-row-card,
+.facility-card,
+.attraction-card,
+.menu-column,
+.contact-info-card,
+.contact-form-block,
+.contact-info-block {
+    border-color: var(--page-card-border, rgba(212, 175, 55, 0.15));
+}
+
+.luxury-card:hover,
+.room-row-card:hover,
+.facility-card:hover,
+.attraction-card:hover {
+    box-shadow: 0 15px 40px var(--page-card-shadow-hover, rgba(122, 0, 22, 0.08));
+}
+
+/* Facility icon accent override */
+.facility-card:hover .facility-icon-wrapper {
+    background-color: var(--color-primary);
+    border-color: var(--page-accent, var(--color-accent));
+}
+
+.facility-card:hover .facility-icon-wrapper svg {
+    stroke: var(--page-accent, var(--color-accent));
+}
+
+/* Gallery overlay accent */
+.gallery-overlay {
+    background-color: rgba(var(--page-overlay-rgb, 122, 0, 22), 0.85);
+}
+
+.gallery-overlay svg {
+    stroke: var(--page-accent, var(--color-accent));
+}
+
+/* Gallery tab active state */
+.gallery-tab.active,
+.gallery-tab:hover {
+    background-color: var(--page-accent, var(--color-primary));
+    border-color: var(--page-accent, var(--color-primary));
+}
+
+/* Reservation section bg */
+.reservation-section {
+    background-color: var(--color-primary);
+    border-color: var(--page-accent, var(--color-accent));
+}
+
+.reservation-section h2::after {
+    background-color: var(--page-accent, var(--color-accent));
+}
+
+.reservation-field label {
+    color: var(--page-accent, var(--color-accent));
+}
+
+/* Form focus lines */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.search-group input:focus,
+.search-group select:focus {
+    border-bottom-color: var(--page-accent, var(--color-accent));
+}
+
+/* Room pricing */
+.room-price-val,
+.stay-card-price {
+    color: var(--color-primary);
+}
+
+/* Room amenity checklist tick */
+.stay-card-features li::before {
+    color: var(--page-accent-dark, var(--color-accent-dark));
+}
+
+/* Attraction distance badge accent */
+.attraction-distance {
+    color: var(--page-accent-dark, var(--color-accent-dark));
+    border-color: var(--page-card-border, rgba(212, 175, 55, 0.2));
+}

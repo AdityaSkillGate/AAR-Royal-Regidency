@@ -1,0 +1,161 @@
+/* AAR Royal Residency - Contact Us Styles */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.contact-info-block {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: var(--box-shadow);
+}
+
+.contact-info-block h3 {
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-info-block > p {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: var(--color-bg-light);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.contact-info-card svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-accent-dark);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.contact-info-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.contact-info-card p,
+.contact-info-card a {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+}
+
+.contact-info-card a:hover {
+    color: var(--color-primary);
+}
+
+/* Map frame container */
+.contact-map-wrapper {
+    margin-top: var(--spacing-md);
+    height: 250px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.contact-map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Contact/Booking Form styling */
+.contact-form-block {
+    background-color: var(--color-bg-light);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.contact-form-block h3 {
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-form-block > p {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-dark);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border: none;
+    border-bottom: 2px solid #E5E0D8;
+    background-color: transparent;
+    padding: 8px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom-color: var(--color-accent);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.contact-form-block .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
