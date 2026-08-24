@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery | AAR Royal Residency Hotel</title>
+    <meta name="description" content="View the photogenic interior and facade of AAR Royal Residency in SankaranKovil. Gallery photos of our suites, restaurant dining hall, lobby, and exterior views.">
+    <meta name="keywords" content="hotel interior photos, luxury suites gallery, restaurant ambience photos, hotel lobby views">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-gallery">
+
+    <!-- Dynamic Header Injection -->
+    <div id="navbar-container"></div>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('assets/hero/hero-2.jpg');">
+        <div class="page-banner-content">
+            <span class="badge-gold">Photo Showcase</span>
+            <h1>A Glimpse of Royalty</h1>
+        </div>
+    </section>
+
+    <!-- Gallery Grid with Filters -->
+    <section class="section container">
+        <!-- Category Tab filters -->
+        <div class="gallery-tabs">
+            <button class="gallery-tab active" data-filter="all">All Photos</button>
+            <button class="gallery-tab" data-filter="rooms">Rooms</button>
+            <button class="gallery-tab" data-filter="lobby">Lobby</button>
+            <button class="gallery-tab" data-filter="restaurant">Restaurant</button>
+            <button class="gallery-tab" data-filter="exterior">Exterior</button>
+        </div>
+        
+        <!-- Media Grid -->
+        <div class="gallery-grid">
+            <!-- Item 1: Exterior -->
+            <div class="gallery-item" data-category="exterior">
+                <img src="assets/hero/herobannel.jpeg" alt="AAR Royal Residency Facade">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Palace Facade</h4>
+                    <p>Exterior View</p>
+                </div>
+            </div>
+            
+            <!-- Item 2: Lobby -->
+            <div class="gallery-item" data-category="lobby">
+                <img src="assets/hero/reception1.png" alt="Reception Lobby Lounge">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Hotel Lobby</h4>
+                    <p>Lobby & Reception</p>
+                </div>
+            </div>
+
+            <!-- Item 3: Room -->
+            <div class="gallery-item" data-category="rooms">
+                <img src="assets/rooms/room1.png" alt="Cozy Standard Room">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Standard Room</h4>
+                    <p>Stays & Suites</p>
+                </div>
+            </div>
+
+            <!-- Item 4: Restaurant -->
+            <div class="gallery-item" data-category="restaurant">
+                <img src="assets/rooms/room2.png" alt="Luxury Dine Area">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Dining Hall</h4>
+                    <p>Restaurant Ambience</p>
+                </div>
+            </div>
+
+            <!-- Item 5: Room Deluxe -->
+            <div class="gallery-item" data-category="rooms">
+                <img src="assets/rooms/room3.png" alt="Luxury Deluxe Suite Bedroom">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Deluxe Suite</h4>
+                    <p>Stays & Suites</p>
+                </div>
+            </div>
+
+            <!-- Item 6: Restaurant Buffet -->
+            <div class="gallery-item" data-category="restaurant">
+                <img src="assets/hero/herobanner2.png" alt="Premium Dining Buffet Setup">
+                <div class="gallery-overlay">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <h4>Palace Seating</h4>
+                    <p>Restaurant Dining</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal popup portal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <span id="lightbox-close" class="lightbox-close">&times;</span>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Popup Image Preview">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank" aria-label="WhatsApp Booking Support">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0c-6.627 0-12.031 5.405-12.031 12.032 0 2.112.549 4.175 1.593 5.992l-1.593 5.976 6.12-1.606c1.742.946 3.714 1.446 5.911 1.446 6.627 0 12.031-5.405 12.031-12.032s-5.404-12.032-12.031-12.032zm6.656 17.382c-.282.793-1.656 1.531-2.281 1.625-.625.094-1.437.156-2.312-.281-.875-.438-3.031-1.125-5.781-3.625-2.75-2.5-4.594-5.969-4.75-6.219-.156-.25-1.125-1.5-1.125-2.875s.688-2.062 1-2.375c.312-.312.656-.375.875-.375.219 0 .438 0 .625.031.188.031.438-.094.688.531.25.625.875 2.125.938 2.25s.156.281.062.469c-.094.188-.125.281-.25.531-.125.25-.281.562-.375.688-.125.156-.25.312-.094.594.156.281.688 1.156 1.469 1.844 1.031.875 1.875 1.156 2.188 1.312.312.156.5.125.688-.062.188-.188.812-.938 1.031-1.25.219-.312.438-.25.719-.156.281.094 1.781.844 2.094 1 .312.156.5.25.594.406.094.156.094.875-.188 1.688z"/></svg>
+    </a>
+
+    <!-- Dynamic Footer Injection -->
+    
+    <!-- Gallery Categories -->
+    <!-- <section class="section container">
+        <h2>Exterior Gallery</h2>
+        <div class="gallery-grid">Exterior photos here</div>
+        
+        <h2>Room Gallery</h2>
+        <div class="gallery-grid">Room photos here</div>
+        
+        <h2>Restaurant Gallery</h2>
+        <div class="gallery-grid">Restaurant photos here</div>
+        
+        <h2>Lobby Gallery</h2>
+        <div class="gallery-grid">Lobby photos here</div> -->
+        
+        <!-- <h2>Video Gallery</h2>
+        <div class="gallery-grid">Videos here</div> -->
+    <!-- </section> -->
+<div id="footer-container"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
+
+
