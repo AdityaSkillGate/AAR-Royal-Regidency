@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="output">Running multi-page mobile header test...</div>
+    <iframe id="testFrame" style="width: 375px; height: 667px; border: 1px solid #ccc;"></iframe>
+    <script>
+        const pages = @("index.html", "about.html", "rooms.html", "facilities.html", "reviews.html", "contact.html");
+        const results = [];
+
+        async function testPage(page) {
+            return new Promise((resolve) => {
+                const frame = document.getElementById("testFrame");
+                frame.onload = async () => {
+                    await new Promise(r => setTimeout(r, 600)); // Allow dynamic components to inject
+                    const win = frame.contentWindow;
+                    const doc = frame.contentDocument;
+                    
+                    const header = doc.querySelector(".header-container");
+                    const toggle = doc.querySelector(".nav-toggle, #nav-toggle-btn");
+                    const menu = doc.querySelector(".nav-menu");
+
+                    if (!header) {
+                        results.push({ page, status: "FAIL", reason: "header-container not found" });
+                        return resolve();
+                    }
+
+                    // Initial check
+                    const rectInitial = header.getBoundingClientRect();
+                    const styleInitial = win.getComputedStyle(header);
+                    const isFixedInitial = styleInitial.position === "fixed";
+                    const isTopZeroInitial = Math.abs(rectInitial.top) < 2;
+
+                    // Scroll down 400px
+                    win.scrollTo(0, 400);
+                    await new Promise(r => setTimeout(r, 250));
+
+                    const rectScrolled = header.getBoundingClientRect();
+                    const styleScrolled = win.getComputedStyle(header);
+                    const isFixedScrolled = styleScrolled.position === "fixed";
+                    const isTopZeroScrolled = Math.abs(rectScrolled.top) < 2;
+                    const isVisibleScrolled = rectScrolled.height > 40 && rectScrolled.bottom > 40;
+
+                    // Test hamburger menu drawer
+                    let toggleWorks = false;
+                    if (toggle && menu) {
+                        toggle.click();
+                        await new Promise(r => setTimeout(r, 100));
+                        toggleWorks = toggle.classList.contains("open") && menu.classList.contains("open");
+                        // Close it
+                        toggle.click();
+                        await new Promise(r => setTimeout(r, 100));
+                    }
+
+                    const passed = isFixedInitial && isTopZeroInitial && isFixedScrolled && isTopZeroScrolled && isVisibleScrolled;
+                    results.push({
+                        page,
+                        status: passed ? "PASS" : "FAIL",
+                        isFixedInitial,
+                        isTopZeroInitial,
+                        isFixedScrolled,
+                        isTopZeroScrolled,
+                        isVisibleScrolled,
+                        scrolledY: win.scrollY,
+                        headerHeight: rectScrolled.height,
+                        toggleWorks
+                    });
+                    resolve();
+                };
+                frame.src = "http://localhost:8899/" + page;
+            });
+        }
+
+        async function runAll() {
+            for (const page of pages) {
+                await testPage(page);
+            }
+            await fetch("/report-results?data=" + encodeURIComponent(JSON.stringify(results)));
+        }
+
+        window.addEventListener("load", runAll);
+    </script>
+</body>
+</html>
