@@ -17,6 +17,7 @@ html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
     color: var(--dark);
     background-color: var(--neutral);
     line-height: 1.68;
-    overflow-x: hidden;
+    overflow-x: clip;
     position: relative;
     selection-background-color: var(--primary);
     selection-color: var(--white);

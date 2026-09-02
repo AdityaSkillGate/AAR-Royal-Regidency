@@ -1,309 +1,789 @@
 /* ================================================================
    AAR Royal Residency - Dynamic Client-Side Localization Engine
-   Loads /locales/{lang}.json and translates DOM elements dynamically
+   Loads locales/english.json or locales/tamil.json and translates DOM elements
    Supports: data-i18n, data-i18n-html, data-i18n-placeholder, data-i18n-title
+   Features: Instant zero-latency translation, persistent state, mobile-first
    ================================================================ */
 
-// Fallback embedded dictionaries for local file:// execution without web server
+// Embedded complete dictionaries for offline / local file:// execution and instant rendering
 window.__LOCAL_DICTS = {
     en: {
-        "nav_home": "Home",
-        "nav_about": "About Us",
-        "nav_rooms": "Rooms",
-        "nav_all_rooms": "All Rooms & Suites",
-        "nav_restaurant": "Restaurant & Dining",
-        "nav_facilities": "Facilities & Amenities",
-        "nav_attractions": "Attractions",
-        "nav_gallery": "Gallery",
-        "nav_offers": "Offers",
-        "nav_reviews": "Reviews",
-        "nav_faq": "FAQ",
-        "nav_contact": "Contact Us",
-        "btn_book_now": "Book Now",
-        "hero_badge": "Welcome to Royalty",
-        "hero_title": "Comfortable Stay in SankaranKovil",
-        "hero_desc": "Experience traditional warmth, modern luxury, and unmatched hospitality in the heart of Tenkasi District.",
-        "hero_btn_book": "Book a Stay",
-        "hero_btn_about": "About Us",
-        "search_checkin": "Check-In Date",
-        "search_checkout": "Check-Out Date",
-        "search_guests": "Guests",
-        "search_guests_1": "1 Guest",
-        "search_guests_2": "2 Guests",
-        "search_guests_3": "3 Guests",
-        "search_guests_4": "4+ Family",
-        "search_room_type": "Room Type",
-        "search_room_std": "Standard Room (₹1,499)",
-        "search_room_dlx": "Deluxe Room (₹2,499)",
-        "search_room_fam": "Family Suite (₹3,999)",
-        "search_btn": "Check Availability",
-        "intro_badge": "Heritage & Comfort",
-        "intro_title": "A Sanctuary of Royal Hospitality",
-        "intro_p1": "AAR Royal Residency offers travelers and pilgrims a serene, palace-like experience in SankaranKovil. We are conveniently situated just 300 meters (~5 minutes walk) from the historic Sri Sankaranarayanar Temple.",
-        "intro_p2": "Whether visiting for temple darshan, family vacation, or business, we provide impeccably clean AC rooms, authentic pure veg and non-veg dining, and 24/7 personalized care.",
-        "intro_btn_facilities": "Explore Facilities",
-        "intro_btn_story": "Our Heritage",
-        "why_badge": "Key Highlights",
-        "why_title": "Why Choose AAR Royal Residency?",
-        "why_subtitle": "Thoughtful amenities designed to make your stay memorable and comfortable.",
-        "why_h1": "5 Mins Walk to Temple",
-        "why_p1": "Reach Sri Sankaranarayanar Temple easily within 5 minutes for morning and evening darshan.",
-        "why_h2": "100% Split AC Rooms",
-        "why_p2": "Modern temperature control, plush bedding, high-speed Wi-Fi, and smart entertainment.",
-        "why_h3": "Palace Fine Dining",
-        "why_p3": "Authentic South Indian pure veg meals and traditional non-veg feasts cooked in separate kitchens.",
-        "why_h4": "Secure Vehicle Parking",
-        "why_p4": "Spacious on-site parking for cars, vans, and buses with 24/7 CCTV surveillance.",
-        "stays_badge": "Accommodations",
-        "stays_title": "Our Luxurious Rooms & Suites",
-        "room_std_title": "Standard Room",
-        "room_std_price": "₹1,499",
-        "room_price_per_night": "/ night",
-        "room_std_f1": "Split AC Climate Control",
-        "room_std_f2": "High-Speed Free Wi-Fi",
-        "room_std_f3": "Flat Screen LED TV",
-        "room_std_f4": "24/7 Hot Water & Room Service",
-        "room_dlx_title": "Deluxe Room",
-        "room_dlx_price": "₹2,499",
-        "room_dlx_f1": "King Size Bed & Seating Lounge",
-        "room_dlx_f2": "Premium AC & Elegant Decor",
-        "room_dlx_f3": "High-Speed Free Wi-Fi",
-        "room_dlx_f4": "Complimentary Toiletries",
-        "room_fam_title": "Royal Family Suite",
-        "room_fam_price": "₹3,999",
-        "room_fam_f1": "2 King Beds (4-5 Guests)",
-        "room_fam_f2": "Spacious Living Area",
-        "room_fam_f3": "Complimentary Morning Tea/Coffee",
-        "room_fam_f4": "Priority 24/7 Concierge",
-        "btn_view_details": "View Details",
-        "btn_book_whatsapp": "Book via WhatsApp",
-        "comp_title": "Room Comparison Matrix",
-        "comp_th_features": "Features",
-        "comp_th_std": "Standard Room",
-        "comp_th_dlx": "Deluxe Room",
-        "comp_th_fam": "Family Suite",
-        "comp_row_tariff": "Tariff / Night",
-        "comp_row_occ": "Max Occupancy",
-        "comp_occ_std": "2 Adults",
-        "comp_occ_dlx": "2 Adults + 1 Child",
-        "comp_occ_fam": "4 - 5 Family Members",
-        "comp_row_bed": "Bed Type",
-        "comp_bed_std": "1 Double Bed",
-        "comp_bed_dlx": "1 King Size Bed",
-        "comp_bed_fam": "2 King Size Double Beds",
-        "comp_row_ac": "Air Conditioning",
-        "comp_row_wifi": "Complimentary Wi-Fi",
-        "comp_row_hotwater": "24-hr Hot Water",
-        "comp_yes": "Available 24/7",
-        "comp_btn_all": "View All Room Features",
-        "stats_guests": "Happy Guests",
-        "stats_rooms": "Luxury Rooms",
-        "stats_experience": "Years Experience",
-        "stats_support": "24/7 Support",
-        "tour_badge": "Virtual Tour",
-        "tour_title": "Take a Glance at our Residency",
-        "tour_desc": "Explore our grand reception lobby, cozy suites, and restaurant ambience.",
-        "tour_btn_gallery": "Photo Gallery",
-        "tour_btn_video": "Request Video on WhatsApp",
-        "dining_badge": "Fine Dining",
-        "dining_title": "Flavors of South India",
-        "dining_desc": "Hot South Indian traditional banana leaf meals, flavorful Chettinad specialties, and aromatic Nellai biryani prepared with utmost hygiene.",
-        "dining_btn_menu": "View Dining Menu",
-        "reviews_badge": "Guest Reviews",
-        "reviews_title": "What Our Guests Say",
-        "reviews_subtitle": "Rated 4.8 / 5.0 by over 850+ pilgrims and families.",
-        "reviews_btn_all": "Read All Reviews",
-        "map_badge": "Prime Location",
-        "map_title": "Locate Us on Google Maps",
-        "map_subtitle": "Situated near Sri Sankaranarayanar Temple with easy road access.",
-        "cta_badge": "Instant Reservation",
-        "cta_title": "Reserve Your Stay in SankaranKovil Today",
-        "cta_desc": "Enjoy direct booking discounts and instant confirmation without any middleman fees.",
-        "cta_btn_book": "Book Directly on WhatsApp",
-        "footer_about_title": "AAR Royal Residency",
-        "footer_about_desc": "Experience royal comfort, fine dining, and unmatched hospitality in SankaranKovil. Your sanctuary of peace and luxury near Sri Sankaranarayanar Temple.",
-        "footer_explore_title": "Explore",
-        "footer_contact_title": "Contact Us",
-        "footer_location_title": "Our Location",
-        "footer_address": "SankaranKovil, Tenkasi District, Tamil Nadu - 627756",
-        "footer_phone": "+91 98765 43210",
-        "footer_email": "reservations@aarroyalresidency.com",
-        "footer_copyright": "© 2026 AAR Royal Residency. All Rights Reserved.",
-        "footer_privacy": "Privacy Policy",
-        "footer_terms": "Terms & Conditions",
-        "footer_credit": "Designed and Maintained by Aditya Skill Gate IT Solution"
-    },
+    "nav_home":  "Home",
+    "nav_about":  "About Us",
+    "nav_rooms":  "Rooms",
+    "nav_all_rooms":  "All Rooms & Suites",
+    "nav_restaurant":  "Restaurant & Dining",
+    "nav_facilities":  "Facilities & Amenities",
+    "nav_attractions":  "Attractions",
+    "nav_gallery":  "Gallery",
+    "nav_offers":  "Offers",
+    "nav_reviews":  "Reviews",
+    "nav_faq":  "FAQ",
+    "nav_contact":  "Contact Us",
+    "btn_book_now":  "Book Now",
+    "hero_badge":  "Welcome to Royalty",
+    "hero_title":  "Comfortable Stay in SankaranKovil",
+    "hero_desc":  "Experience traditional warmth, modern luxury, and unmatched hospitality in the heart of Tenkasi District.",
+    "hero_btn_book":  "Book a Stay",
+    "hero_btn_about":  "About Us",
+    "search_checkin":  "Check-In Date",
+    "search_checkout":  "Check-Out Date",
+    "search_guests":  "Guests",
+    "search_guests_1":  "1 Guest",
+    "search_guests_2":  "2 Guests",
+    "search_guests_3":  "3 Guests",
+    "search_guests_4":  "4+ Family",
+    "search_room_type":  "Room Type",
+    "search_room_std":  "Standard Room (₹1,499)",
+    "search_room_dlx":  "Deluxe Room (₹2,499)",
+    "search_room_fam":  "Family Suite (₹3,999)",
+    "search_btn":  "Check Availability",
+    "intro_badge":  "Heritage & Comfort",
+    "intro_title":  "A Sanctuary of Royal Hospitality",
+    "intro_p1":  "AAR Royal Residency offers travelers and pilgrims a serene, palace-like experience in SankaranKovil. We are conveniently situated just 300 meters (~5 minutes walk) from the historic Sri Sankaranarayanar Temple.",
+    "intro_p2":  "Whether visiting for temple darshan, family vacation, or business, we provide impeccably clean AC rooms, authentic pure veg and non-veg dining, and 24/7 personalized care.",
+    "intro_btn_facilities":  "Explore Facilities",
+    "intro_btn_story":  "Our Heritage",
+    "why_badge":  "Key Highlights",
+    "why_title":  "Why Choose AAR Royal Residency?",
+    "why_subtitle":  "Thoughtful amenities designed to make your stay memorable and comfortable.",
+    "why_h1":  "5 Mins Walk to Temple",
+    "why_p1":  "Reach Sri Sankaranarayanar Temple easily within 5 minutes for morning and evening darshan.",
+    "why_h2":  "100% Split AC Rooms",
+    "why_p2":  "Modern temperature control, plush bedding, high-speed Wi-Fi, and smart entertainment.",
+    "why_h3":  "Palace Fine Dining",
+    "why_p3":  "Authentic South Indian pure veg meals and traditional non-veg feasts cooked in separate kitchens.",
+    "why_h4":  "Secure Vehicle Parking",
+    "why_p4":  "Spacious on-site parking for cars, vans, and buses with 24/7 CCTV surveillance.",
+    "stays_badge":  "Accommodations",
+    "stays_title":  "Our Luxurious Rooms & Suites",
+    "room_std_title":  "Standard Room",
+    "room_std_price":  "₹1,499",
+    "room_price_per_night":  "/ night",
+    "room_std_f1":  "Split AC Climate Control",
+    "room_std_f2":  "High-Speed Free Wi-Fi",
+    "room_std_f3":  "Flat Screen LED TV",
+    "room_std_f4":  "24/7 Hot Water & Room Service",
+    "room_dlx_title":  "Deluxe Room",
+    "room_dlx_price":  "₹2,499",
+    "room_dlx_f1":  "King Size Bed & Seating Lounge",
+    "room_dlx_f2":  "Premium AC & Elegant Decor",
+    "room_dlx_f3":  "High-Speed Free Wi-Fi",
+    "room_dlx_f4":  "Complimentary Toiletries",
+    "room_fam_title":  "Royal Family Suite",
+    "room_fam_price":  "₹3,999",
+    "room_fam_f1":  "2 King Beds (4-5 Guests)",
+    "room_fam_f2":  "Spacious Living Area",
+    "room_fam_f3":  "Complimentary Morning Tea/Coffee",
+    "room_fam_f4":  "Priority 24/7 Concierge",
+    "btn_view_details":  "View Details",
+    "btn_book_whatsapp":  "Book via WhatsApp",
+    "comp_title":  "Room Comparison Matrix",
+    "comp_th_features":  "Features",
+    "comp_th_std":  "Standard Room",
+    "comp_th_dlx":  "Deluxe Room",
+    "comp_th_fam":  "Family Suite",
+    "comp_row_tariff":  "Tariff / Night",
+    "comp_row_occ":  "Max Occupancy",
+    "comp_occ_std":  "2 Adults",
+    "comp_occ_dlx":  "2 Adults + 1 Child",
+    "comp_occ_fam":  "4 - 5 Family Members",
+    "comp_row_bed":  "Bed Type",
+    "comp_bed_std":  "1 Double Bed",
+    "comp_bed_dlx":  "1 King Size Bed",
+    "comp_bed_fam":  "2 King Size Double Beds",
+    "comp_row_ac":  "Air Conditioning",
+    "comp_row_wifi":  "Complimentary Wi-Fi",
+    "comp_row_hotwater":  "24-hr Hot Water",
+    "comp_yes":  "Available 24/7",
+    "comp_btn_all":  "View All Room Features",
+    "stats_guests":  "Happy Guests",
+    "stats_rooms":  "Luxury Rooms",
+    "stats_experience":  "Years Experience",
+    "stats_support":  "24/7 Support",
+    "tour_badge":  "Virtual Tour",
+    "tour_title":  "Take a Glance at our Residency",
+    "tour_desc":  "Explore our grand reception lobby, cozy suites, and restaurant ambience.",
+    "tour_btn_gallery":  "Photo Gallery",
+    "tour_btn_video":  "Request Video on WhatsApp",
+    "dining_badge":  "Fine Dining",
+    "dining_title":  "Flavors of South India",
+    "dining_desc":  "Hot South Indian traditional banana leaf meals, flavorful Chettinad specialties, and aromatic Nellai biryani prepared with utmost hygiene.",
+    "dining_btn_menu":  "View Dining Menu",
+    "reviews_badge":  "Guest Reviews",
+    "reviews_title":  "What Our Guests Say",
+    "reviews_subtitle":  "Rated 4.8 / 5.0 by over 850+ pilgrims and families.",
+    "reviews_btn_all":  "Read All Reviews",
+    "map_badge":  "Prime Location",
+    "map_title":  "Locate Us on Google Maps",
+    "map_subtitle":  "Situated near Sri Sankaranarayanar Temple with easy road access.",
+    "cta_badge":  "Instant Reservation",
+    "cta_title":  "Reserve Your Stay in SankaranKovil Today",
+    "cta_desc":  "Enjoy direct booking discounts and instant confirmation without any middleman fees.",
+    "cta_btn_book":  "Book Directly on WhatsApp",
+    "footer_about_title":  "AAR Royal Residency",
+    "footer_about_desc":  "Experience royal comfort, fine dining, and unmatched hospitality in SankaranKovil. Your sanctuary of peace and luxury near Sri Sankaranarayanar Temple.",
+    "footer_explore_title":  "Explore",
+    "footer_contact_title":  "Contact Us",
+    "footer_location_title":  "Our Location",
+    "footer_address":  "SankaranKovil, Tenkasi District, Tamil Nadu - 627756",
+    "footer_phone":  "+91 98765 43210",
+    "footer_email":  "reservations@aarroyalresidency.com",
+    "footer_copyright":  "© 2026 AAR Royal Residency. All Rights Reserved.",
+    "footer_privacy":  "Privacy Policy",
+    "footer_terms":  "Terms & Conditions",
+    "footer_credit":  "Designed and Maintained by Aditya Skill Gate IT Solution",
+    "about_page_title":  "About Us | AAR Royal Residency",
+    "about_banner_badge":  "Heritage & Hospitality",
+    "about_banner_title":  "Our Story & Royal Hospitality",
+    "about_banner_desc":  "Peaceful atmosphere, superior amenities, and heartfelt service in SankaranKovil.",
+    "about_story_badge":  "Welcome",
+    "about_story_title":  "Your Serene Home in SankaranKovil",
+    "about_story_p1":  "In the spiritual city of SankaranKovil, AAR Royal Residency was founded with a mission to offer pilgrims, vacationers, and business travelers an accommodation experience akin to royal hospitality.",
+    "about_story_p2":  "Located just 300 meters from the renowned Sri Sankaranarayanar Temple, guests can comfortably attend early morning darshans, poojas, and festival processions with ease.",
+    "about_story_p3":  "With thoughtfully curated AC rooms, delicious cuisine, 24/7 hot water, and courteous staff, we ensure a rejuvenating stay.",
+    "about_mission_title":  "Our Mission",
+    "about_mission_desc":  "Living by \u0027Atithi Devo Bhava\u0027 (Guest is God), we are committed to providing uncompromised cleanliness, security, and royal hospitality to ensure every guest departs with complete satisfaction.",
+    "about_vision_title":  "Our Vision",
+    "about_vision_desc":  "To remain the most trusted, premier luxury hospitality destination along the South Tamil Nadu spiritual and heritage tourism corridor.",
+    "about_quote_text":  "\"Serving every pilgrim and traveler with warm personal care and providing them with a peaceful retreat in SankaranKovil is our greatest honor.\"",
+    "about_quote_author":  "Management Team",
+    "rooms_page_title":  "Rooms & Suites | AAR Royal Residency",
+    "rooms_banner_badge":  "Stay With Us",
+    "rooms_banner_title":  "Our Luxury Rooms & Suites",
+    "rooms_banner_desc":  "Thoughtfully designed premium rooms for a peaceful and relaxing retreat.",
+    "rooms_rules_badge":  "Guidelines",
+    "rooms_rules_title":  "Room Policies & Timings",
+    "rooms_checkin_title":  "Check-In & Check-Out",
+    "rooms_checkin_text":  "Check-In: 12:00 PM | Check-Out: 11:00 AM. 24-hour flexible arrival available upon prior notice.",
+    "rooms_id_title":  "Guest Guidelines",
+    "rooms_id_text":  "Valid government photo ID is mandatory for all adults. Quiet hours from 10:30 PM for peaceful rest.",
+    "dining_page_title":  "Fine Dining & Restaurant | AAR Royal Residency",
+    "dining_banner_badge":  "Culinary Journey",
+    "dining_banner_title":  "Palace Dining & Cuisine",
+    "dining_banner_desc":  "Traditional South Indian flavors, rich spices, and hygienic culinary preparation.",
+    "dining_ambience_badge":  "Ambience",
+    "dining_ambience_title":  "Dine in Royal Elegance",
+    "dining_ambience_p1":  "At AAR Royal Residency Restaurant, enjoy a spacious and relaxed dining atmosphere with your family and companions.",
+    "dining_ambience_p2":  "Our master chefs use fresh ingredients and authentic regional spices to craft unforgettable meals. Pure vegetarian and non-vegetarian dishes are prepared in strictly separate kitchens.",
+    "dining_specials_badge":  "Chef Specials",
+    "dining_specials_title":  "Our Signature Dishes",
+    "dining_spec_1_title":  "South Indian Banana Leaf Meals",
+    "dining_spec_1_desc":  "Steaming rice, sambar, vatha kuzhambu, rasam, kootu, poriyal, appalam, curd, and payasam.",
+    "dining_spec_2_title":  "Chettinad Pepper Chicken",
+    "dining_spec_2_desc":  "Stone-ground pepper and shallots tossed with tender chicken in aromatic spices.",
+    "dining_spec_3_title":  "Royal Paneer Butter Masala",
+    "dining_spec_3_desc":  "Rich cashew tomato gravy loaded with soft paneer cubes and pure butter.",
+    "dining_menu_badge":  "Menu Card",
+    "dining_menu_title":  "Food & Beverage Menu",
+    "dining_veg_title":  "🥗 Pure Vegetarian Dishes",
+    "dining_nonveg_title":  "🍗 Non-Vegetarian Dishes",
+    "dining_res_badge":  "Table Reservation",
+    "dining_res_title":  "Reserve Your Table",
+    "dining_res_btn":  "Book Table via WhatsApp",
+    "fac_page_title":  "Facilities & Amenities | AAR Royal Residency",
+    "fac_banner_badge":  "Hotel Features",
+    "fac_banner_title":  "Premium Hotel Facilities",
+    "fac_banner_desc":  "Designed to make your stay peaceful, safe, and truly comfortable.",
+    "fac_grid_badge":  "Comforts",
+    "fac_grid_title":  "Our 12 Core Amenities",
+    "fac_1_title":  "Complimentary High-Speed Wi-Fi",
+    "fac_1_desc":  "Seamless high-speed optical fiber internet in all rooms and public areas.",
+    "fac_2_title":  "100% Split AC Rooms",
+    "fac_2_desc":  "Remote-controlled modern air conditioning in every room category.",
+    "fac_3_title":  "Secure Vehicle Parking",
+    "fac_3_desc":  "Spacious on-site car and bus parking with 24/7 CCTV surveillance.",
+    "fac_4_title":  "24/7 Room Service",
+    "fac_4_desc":  "Quick delivery of hot beverages, drinking water, and meals directly to your room.",
+    "fac_5_title":  "24/7 Front Desk Assistance",
+    "fac_5_desc":  "Always ready to assist with late check-ins, travel queries, and temple guidance.",
+    "fac_6_title":  "100% Generator Power Backup",
+    "fac_6_desc":  "Automatic heavy-duty generator ensures uninterrupted power for AC, lights, and elevator.",
+    "fac_7_title":  "24/7 CCTV Security",
+    "fac_7_desc":  "Comprehensive security surveillance across all corridors and entryways.",
+    "fac_8_title":  "Daily Housekeeping",
+    "fac_8_desc":  "Clean bed linens, sanitized bathrooms, fresh towels, and spotless rooms daily.",
+    "fac_9_title":  "Express Laundry Service",
+    "fac_9_desc":  "Fast turnaround washing and steam ironing for festival and travel wear.",
+    "fac_10_title":  "Travel & Taxi Desk",
+    "fac_10_desc":  "Reliable AC taxi arrangements for Courtallam waterfalls, Kalugumalai, and railway transfers.",
+    "fac_11_title":  "Multi-Cuisine Dining",
+    "fac_11_desc":  "Wholesome South Indian pure vegetarian and traditional non-vegetarian delights.",
+    "fac_12_title":  "24-hr Hot Water Geysers",
+    "fac_12_desc":  "Instant hot water in all attached bathrooms for early morning temple baths.",
+    "att_page_title":  "Nearby Attractions | AAR Royal Residency",
+    "att_banner_badge":  "Travel Guide",
+    "att_banner_title":  "Attractions in & around SankaranKovil",
+    "att_banner_desc":  "Sacred temples, herbal waterfalls, and traditional handloom silk markets.",
+    "att_list_badge":  "Spiritual & Sightseeing",
+    "att_list_title":  "Top Places to Visit",
+    "att_1_title":  "Sri Sankaranarayanar Temple",
+    "att_1_dist":  "5 Mins Walk (~300m)",
+    "att_1_desc":  "Historic 11th-century temple where Lord Shiva (Sankaran) and Lord Vishnu (Narayanan) unite in one divine sanctum. Renowned for Gomathi Amman shrine and healing ant-hill soil (Putrumann).",
+    "att_2_title":  "Traditional Handloom Silk & Cotton Market",
+    "att_2_dist":  "2 Mins Walk",
+    "att_2_desc":  "SankaranKovil is famous for its vibrant handloom weaving industry. Shop directly from weavers for pure cotton sarees, dhotis, and silk dresses at wholesale prices.",
+    "att_3_title":  "Courtallam Herbal Waterfalls (Spa of the South)",
+    "att_3_dist":  "45 Mins Drive (~42 km)",
+    "att_3_desc":  "Cascading mountain waterfalls enriched with natural herbal qualities in the Western Ghats. Visit Main Falls, Five Falls, and Old Courtallam for a refreshing family bath.",
+    "att_matrix_badge":  "Distance Matrix",
+    "att_matrix_title":  "Distances from AAR Royal Residency",
+    "att_th_dest":  "Destination",
+    "att_th_dist":  "Distance",
+    "att_th_time":  "Travel Time",
+    "att_th_mode":  "Transport",
+    "att_taxi_badge":  "Travel Concierge",
+    "att_taxi_title":  "Need Taxi or Tour Assistance?",
+    "att_taxi_desc":  "Our front desk can arrange comfortable AC cabs for temple visits, Courtallam day trips, and railway pickups.",
+    "att_taxi_btn":  "Book Taxi on WhatsApp",
+    "gal_page_title":  "Photo Gallery | AAR Royal Residency",
+    "gal_banner_badge":  "Photo Showcase",
+    "gal_banner_title":  "Glimpses of Royal Luxury",
+    "gal_banner_desc":  "Take a photo tour of our suites, lobby, dining hall, and exterior ambience.",
+    "gal_tab_all":  "All",
+    "gal_tab_rooms":  "Rooms",
+    "gal_tab_lobby":  "Lobby",
+    "gal_tab_restaurant":  "Restaurant",
+    "gal_tab_exterior":  "Exterior",
+    "offers_page_title":  "Special Offers & Packages | AAR Royal Residency",
+    "offers_banner_badge":  "Exclusive Deals",
+    "offers_banner_title":  "Discounts & Stay Packages",
+    "offers_banner_desc":  "Enjoy premium royal hospitality at the best rates with our limited-time packages.",
+    "offers_grid_badge":  "Limited Time Deals",
+    "offers_grid_title":  "Featured Accommodation Packages",
+    "offer_1_tag":  "Most Popular",
+    "offer_1_disc":  "Flat 15% OFF",
+    "offer_1_title":  "Weekend Pilgrimage Package",
+    "offer_1_desc":  "Specially designed for devotees visiting Sri Sankaranarayanar Temple. Includes early check-in and complimentary morning coffee/tea.",
+    "offer_2_tag":  "Family Favorite",
+    "offer_2_disc":  "Flat 20% OFF",
+    "offer_2_title":  "Royal Family Stay Package",
+    "offer_2_desc":  "Book our spacious Family Suite for 2 or more nights and receive an extra 20% discount with complimentary breakfast.",
+    "offer_3_tag":  "Festival Deal",
+    "offer_3_disc":  "₹500 OFF / Night",
+    "offer_3_title":  "Aadi Thapasu & Festival Special",
+    "offer_3_desc":  "Reserve in advance during festival days to lock in priority rooms and discounted pricing.",
+    "offer_4_tag":  "Group Deal",
+    "offer_4_disc":  "Up to 25% OFF",
+    "offer_4_title":  "Tour Groups & Corporate Package",
+    "offer_4_desc":  "Exclusive tariffs for pilgrimage tour groups and corporate visitors reserving 3 or more rooms.",
+    "offer_btn_claim":  "Claim Offer on WhatsApp",
+    "rev_page_title":  "Guest Reviews & Ratings | AAR Royal Residency",
+    "rev_banner_badge":  "Guest Experiences",
+    "rev_banner_title":  "What Our Guests Say",
+    "rev_banner_desc":  "Real feedback from pilgrims, vacationing families, and business travelers.",
+    "rev_tab_all":  "All Reviews",
+    "rev_tab_temple":  "Temple Pilgrims",
+    "rev_tab_family":  "Families",
+    "rev_tab_business":  "Business Travelers",
+    "rev_cta_title":  "Stayed with us recently?",
+    "rev_cta_desc":  "Share your valuable feedback and help fellow pilgrims and travelers.",
+    "rev_cta_btn":  "Share Review on WhatsApp",
+    "faq_page_title":  "Frequently Asked Questions (FAQ) | AAR Royal Residency",
+    "faq_banner_badge":  "Help & Support",
+    "faq_banner_title":  "Frequently Asked Questions",
+    "faq_banner_desc":  "Everything you need to know about check-in, temple proximity, dining, and policies.",
+    "faq_search_ph":  "🔍 Search FAQ (e.g. check-in, temple, parking, food, tariff)...",
+    "faq_tab_all":  "All Questions",
+    "faq_tab_checkin":  "Check-In & Booking",
+    "faq_tab_rooms":  "Rooms & Amenities",
+    "faq_tab_dining":  "Dining & Restaurant",
+    "faq_tab_location":  "Location & Travel",
+    "faq_tab_cancel":  "Payment & Cancellation",
+    "faq_cta_title":  "Still have questions?",
+    "faq_cta_desc":  "Our 24/7 customer support team is always ready to assist you.",
+    "faq_cta_btn":  "Ask on WhatsApp",
+    "contact_page_title":  "Contact Us | AAR Royal Residency",
+    "contact_banner_badge":  "Get in Touch",
+    "contact_banner_title":  "Contact AAR Royal Residency",
+    "contact_banner_desc":  "Reach out 24/7 for room inquiries, reservations, and travel assistance.",
+    "contact_details_title":  "Contact Information",
+    "contact_card_addr_title":  "Our Address",
+    "contact_card_phone_title":  "Phone & Reservations",
+    "contact_card_wa_title":  "WhatsApp Support (24/7)",
+    "contact_card_hours_title":  "Working Hours",
+    "contact_card_hours_desc":  "Open 24 Hours • 7 Days a Week",
+    "contact_form_title":  "Send an Inquiry",
+    "contact_lbl_name":  "Full Name *",
+    "contact_lbl_email":  "Email Address",
+    "contact_lbl_phone":  "Phone Number *",
+    "contact_lbl_subject":  "Inquiry Subject *",
+    "contact_lbl_msg":  "Your Message *",
+    "contact_btn_send":  "Send Message via WhatsApp",
+    "privacy_page_title":  "Privacy Policy | AAR Royal Residency",
+    "privacy_banner_title":  "Privacy Policy",
+    "privacy_banner_desc":  "How we collect, protect, and handle guest personal data.",
+    "terms_page_title":  "Terms & Conditions | AAR Royal Residency",
+    "terms_banner_title":  "Terms & Conditions",
+    "terms_banner_desc":  "Rules and guidelines for a safe, comfortable stay.",
+    "att_4_title":  "Kalugumalai Rock-Cut Temples (Vettuvan Koil)",
+    "att_4_dist":  "25 Mins Drive (~22 km)",
+    "att_4_desc":  "Known as the \u0027Ellora of the South\u0027, featuring monolithic 8th-century Pandya rock carvings, Jain relief sculptures, and the magnificent Kazhugasalamoorthy Murugan Temple.",
+    "contact_opt_booking":  "Room Reservation Inquiry",
+    "contact_opt_group":  "Temple Tour / Group Booking",
+    "contact_opt_other":  "General Query",
+    "dining_cta_title":  "Plan a Family Lunch or Group Feast",
+    "dining_cta_desc":  "Pre-book your table or customize wedding / pilgrim group meal packages directly with our restaurant team.",
+    "dining_btn_table":  "Book a Table on WhatsApp",
+    "comp_ac_split":  "Split AC",
+    "comp_ac_premium":  "Premium Split AC"
+},
     ta: {
-        "nav_home": "முகப்பு",
-        "nav_about": "எங்களைப் பற்றி",
-        "nav_rooms": "அறைகள்",
-        "nav_all_rooms": "அனைத்து அறைகள் & சூட்கள்",
-        "nav_restaurant": "உணவகம் & விருந்து",
-        "nav_facilities": "விடுதி வசதிகள்",
-        "nav_attractions": "சுற்றுலா இடங்கள்",
-        "nav_gallery": "படத்தொகுப்பு",
-        "nav_offers": "சலுகைகள்",
-        "nav_reviews": "மதிப்புரைகள்",
-        "nav_faq": "கேள்வி-பதில்கள்",
-        "nav_contact": "தொடர்புக்கு",
-        "btn_book_now": "முன்பதிவு செய்க",
-        "hero_badge": "அரச குடும்ப வரவேற்பு",
-        "hero_title": "சங்கரன்கோவிலில் அமைதியான சொகுசு தங்குமிடம்",
-        "hero_desc": "தென்காசி மாவட்டத்தின் மையப்பகுதியில் பாரம்பரிய விருந்தோம்பல், அதிநவீன வசதிகள் மற்றும் அமைதியான சூழலுடன் கூடிய உயர்தர தங்குமிடம்.",
-        "hero_btn_book": "அறை முன்பதிவு",
-        "hero_btn_about": "எங்களைப் பற்றி",
-        "search_checkin": "வருகை தேதி (Check-In)",
-        "search_checkout": "வெளியேறும் தேதி (Check-Out)",
-        "search_guests": "விருந்தினர்கள்",
-        "search_guests_1": "1 விருந்தினர்",
-        "search_guests_2": "2 விருந்தினர்கள்",
-        "search_guests_3": "3 விருந்தினர்கள்",
-        "search_guests_4": "4+ குடும்பத்தினர்",
-        "search_room_type": "அறை வகை",
-        "search_room_std": "ஸ்டாண்டர்ட் அறை (₹1,499)",
-        "search_room_dlx": "டீலக்ஸ் அறை (₹2,499)",
-        "search_room_fam": "ஃபேமிலி சூட் (₹3,999)",
-        "search_btn": "அறை உள்ளதா என பார்க்க",
-        "intro_badge": "பாரம்பரிய விருந்தோம்பல்",
-        "intro_title": "உயர்தர விருந்தோம்பலின் உன்னத தலம்",
-        "intro_p1": "AAR Royal Residency சங்கரன்கோவிலில் தங்கும் பயணிகளுக்கு ஓர் அமைதியான அரண்மனை போன்ற அனுபவத்தை வழங்குகிறது. வரலாற்று சிறப்புமிக்க ஸ்ரீ சங்கரநாராயணர் கோவில் மிக அருகில் (சுமார் 300 மீட்டர்) அமைந்துள்ளது.",
-        "intro_p2": "பக்தர்கள், குடும்பங்கள், சுற்றுலா பயணிகள் மற்றும் தொழில் நிமித்தமாக வருவோருக்கு தூய்மையான AC அறைகள், உயர்தர சைவ/அசைவ உணவகம் மற்றும் 24 மணி நேர பாதுகாப்பு சேவை வழங்குகிறோம்.",
-        "intro_btn_facilities": "வசதிகளை அறிய",
-        "intro_btn_story": "எங்கள் வரலாறு",
-        "why_badge": "சிறப்பம்சங்கள்",
-        "why_title": "ஏன் AAR ராயல் ரெசிடென்சி?",
-        "why_subtitle": "உங்கள் சங்கரன்கோவில் பயணத்தை மறக்க முடியாத இனிமையான அனுபவமாக மாற்றும் வசதிகள்.",
-        "why_h1": "கோவிலுக்கு 5 நிமிடம் நடை",
-        "why_p1": "ஸ்ரீ சங்கரநாராயணர் கோவிலுக்கு மிக எளிதாக 5 நிமிடத்தில் நடந்து செல்லலாம்.",
-        "why_h2": "100% Split AC அறைகள்",
-        "why_p2": "குளிர்சாதன வசதி, மென்மையான படுக்கை, அதிவேக Wi-Fi மற்றும் Smart TV.",
-        "why_h3": "சுவையான அரண்மனை உணவகம்",
-        "why_p3": "தூய சைவ உணவுகள் மற்றும் பாரம்பரிய தென் மாவட்ட அசைவ சுவை விருந்து.",
-        "why_h4": "பாதுகாப்பான வாகன பார்க்கிங்",
-        "why_p4": "கார்கள் மற்றும் சுற்றுலா வாகனங்களுக்கு 24/7 CCTV கண்காணிப்புடன் கூடிய இலவச பார்க்கிங்.",
-        "stays_badge": "தங்கும் அறைகள்",
-        "stays_title": "எங்கள் சொகுசு அறைகள் & சூட்கள்",
-        "room_std_title": "ஸ்டாண்டர்ட் அறை",
-        "room_std_price": "₹1,499",
-        "room_price_per_night": "/ இரவு",
-        "room_std_f1": "Split AC குளிர்சாதன வசதி",
-        "room_std_f2": "இலவச அதிவேக Wi-Fi",
-        "room_std_f3": "Flat Screen LED TV",
-        "room_std_f4": "24/7 ரூம் சர்வீஸ் & வெந்நீர் வசதி",
-        "room_dlx_title": "டீலக்ஸ் அறை",
-        "room_dlx_price": "₹2,499",
-        "room_dlx_f1": "அகலமான கிங் சைஸ் படுக்கை",
-        "room_dlx_f2": "பிரீமியம் AC & இன்டீரியர் வடிவமைப்பு",
-        "room_dlx_f3": "அதிவேக இலவச Wi-Fi",
-        "room_dlx_f4": "நவீன குளியலறை & டாய்லெட்ரீஸ்",
-        "room_fam_title": "ராயல் ஃபேமிலி சூட்",
-        "room_fam_price": "₹3,999",
-        "room_fam_f1": "2 கிங் சைஸ் படுக்கைகள் (4-5 நபர்கள்)",
-        "room_fam_f2": "பிரத்யேக சிட்டிங் லவுஞ்ச் வசதி",
-        "room_fam_f3": "காலை டீ / காபி காம்ப்ளிமென்டரி",
-        "room_fam_f4": "24/7 முன்னுரிமை சேவை",
-        "btn_view_details": "விவரம் காண்க",
-        "btn_book_whatsapp": "WhatsApp-ல் பதிவு செய்க",
-        "comp_title": "அறை ஒப்பீட்டு அட்டவணை",
-        "comp_th_features": "வசதிகள்",
-        "comp_th_std": "ஸ்டாண்டர்ட்",
-        "comp_th_dlx": "டீலக்ஸ்",
-        "comp_th_fam": "ஃபேமிலி சூட்",
-        "comp_row_tariff": "கட்டணம் / இரவு",
-        "comp_row_occ": "நபர்கள் எண்ணிக்கை",
-        "comp_occ_std": "2 பெரியவர்கள்",
-        "comp_occ_dlx": "2 பெரியவர்கள் + 1 குழந்தை",
-        "comp_occ_fam": "4 - 5 நபர்கள் / குடும்பம்",
-        "comp_row_bed": "படுக்கை வகை",
-        "comp_bed_std": "1 டபுள் பெட்",
-        "comp_bed_dlx": "1 கிங் சைஸ் பெட்",
-        "comp_bed_fam": "2 கிங் சைஸ் டபுள் பெட்",
-        "comp_row_ac": "Air Conditioning",
-        "comp_row_wifi": "இலவச Wi-Fi",
-        "comp_row_hotwater": "24 மணி நேர வெந்நீர்",
-        "comp_yes": "24 மணி நேரமும் உண்டு",
-        "comp_btn_all": "முழு அறை விவரங்களை அறிய",
-        "stats_guests": "மகிழ்ச்சியான விருந்தினர்கள்",
-        "stats_rooms": "சொகுசு அறைகள்",
-        "stats_experience": "வருட பாரம்பரிய சேவை",
-        "stats_support": "24/7 வாடிக்கையாளர் உதவி",
-        "tour_badge": "நேரடி காட்சி",
-        "tour_title": "ஹோட்டல் காட்சிகளை பார்வையிடுங்கள்",
-        "tour_desc": "எங்கள் வரவேற்பறை, டீலக்ஸ் அறைகள் மற்றும் உணவகத்தின் புகைப்படங்களை கண்டுகளியுங்கள்.",
-        "tour_btn_gallery": "படத்தொகுப்பு காண்க",
-        "tour_btn_video": "WhatsApp-ல் வீடியோ பெற",
-        "dining_badge": "அரண்மனை உணவகம்",
-        "dining_title": "தென் தமிழகத்தின் சுவையான விருந்து",
-        "dining_desc": "சுடச்சுட தென் இந்திய பாரம்பரிய சைவ தலைவாழை இலை சாப்பாடு, நறுமணமிக்க செட்டிநாடு மற்றும் நெல்லை அசைவ உணவுகள் சுகாதாரமான முறையில் தயார் செய்யப்படுகிறது.",
-        "dining_btn_menu": "உணவு மெனு காண்க",
-        "reviews_badge": "மதிப்புரைகள்",
-        "reviews_title": "விருந்தினர்களின் கருத்துக்கள்",
-        "reviews_subtitle": "850+ பக்தர்கள் மற்றும் குடும்பங்களின் 4.8 / 5.0 நட்சத்திர மதிப்பீடு.",
-        "reviews_btn_all": "அனைத்து மதிப்புரைகளையும் படிக்க",
-        "map_badge": "அமைவிடம்",
-        "map_title": "வரைபடத்தில் எங்களை கண்டறிய",
-        "map_subtitle": "ஸ்ரீ சங்கரநாராயணர் கோவில் அருகில் எளிதான சாலை வசதியுடன்.",
-        "cta_badge": "உடனடி முன்பதிவு",
-        "cta_title": "சங்கரன்கோவிலில் உங்கள் தங்குதலை இன்றே பதிவு செய்யுங்கள்",
-        "cta_desc": "குறைந்த கட்டணத்தில் உடனடி உறுதிப்படுத்தலுக்கு WhatsApp வழியாக முன்பதிவு செய்யுங்கள்.",
-        "cta_btn_book": "WhatsApp-ல் முன்பதிவு செய்க",
-        "footer_about_title": "AAR Royal Residency",
-        "footer_about_desc": "சங்கரன்கோவிலில் அரச குடும்பத்திற்கு இணையான தங்குமிடம், சுவையான உணவு மற்றும் பாசமிக்க உபசரிப்பு. ஸ்ரீ சங்கரநாராயணர் கோவில் அருகில் உங்கள் அமைதியான இல்லம்.",
-        "footer_explore_title": "பக்கங்கள்",
-        "footer_contact_title": "தொடர்புக்கு",
-        "footer_location_title": "அமைவிடம்",
-        "footer_address": "சங்கரன்கோவில், தென்காசி மாவட்டம், தமிழ்நாடு - 627756",
-        "footer_phone": "+91 98765 43210",
-        "footer_email": "reservations@aarroyalresidency.com",
-        "footer_copyright": "© 2026 AAR Royal Residency. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
-        "footer_privacy": "தனியுரிமைக் கொள்கை",
-        "footer_terms": "விதிமுறைகள் & நிபந்தனைகள்",
-        "footer_credit": "Designed and Maintained by Aditya Skill Gate IT Solution"
-    }
+    "nav_home":  "முகப்பு",
+    "nav_about":  "எங்களைப் பற்றி",
+    "nav_rooms":  "அறைகள்",
+    "nav_all_rooms":  "அனைத்து அறைகள் & சூட்கள்",
+    "nav_restaurant":  "உணவகம் & விருந்து",
+    "nav_facilities":  "விடுதி வசதிகள்",
+    "nav_attractions":  "சுற்றுலா இடங்கள்",
+    "nav_gallery":  "படத்தொகுப்பு",
+    "nav_offers":  "சலுகைகள்",
+    "nav_reviews":  "மதிப்புரைகள்",
+    "nav_faq":  "கேள்வி-பதில்கள்",
+    "nav_contact":  "தொடர்புக்கு",
+    "btn_book_now":  "முன்பதிவு செய்க",
+    "hero_badge":  "அரச குடும்ப வரவேற்பு",
+    "hero_title":  "சங்கரன்கோவிலில் அமைதியான சொகுசு தங்குமிடம்",
+    "hero_desc":  "தென்காசி மாவட்டத்தின் மையப்பகுதியில் பாரம்பரிய விருந்தோம்பல், அதிநவீன வசதிகள் மற்றும் அமைதியான சூழலுடன் கூடிய உயர்தர தங்குமிடம்.",
+    "hero_btn_book":  "அறை முன்பதிவு",
+    "hero_btn_about":  "எங்களைப் பற்றி",
+    "search_checkin":  "வருகை தேதி (Check-In)",
+    "search_checkout":  "வெளியேறும் தேதி (Check-Out)",
+    "search_guests":  "விருந்தினர்கள்",
+    "search_guests_1":  "1 விருந்தினர்",
+    "search_guests_2":  "2 விருந்தினர்கள்",
+    "search_guests_3":  "3 விருந்தினர்கள்",
+    "search_guests_4":  "4+ குடும்பத்தினர்",
+    "search_room_type":  "அறை வகை",
+    "search_room_std":  "ஸ்டாண்டர்ட் அறை (₹1,499)",
+    "search_room_dlx":  "டீலக்ஸ் அறை (₹2,499)",
+    "search_room_fam":  "ஃபேமிலி சூட் (₹3,999)",
+    "search_btn":  "அறை உள்ளதா என பார்க்க",
+    "intro_badge":  "பாரம்பரிய விருந்தோம்பல்",
+    "intro_title":  "உயர்தர விருந்தோம்பலின் உன்னத தலம்",
+    "intro_p1":  "AAR Royal Residency சங்கரன்கோவிலில் தங்கும் பயணிகளுக்கு ஓர் அமைதியான அரண்மனை போன்ற அனுபவத்தை வழங்குகிறது. வரலாற்று சிறப்புமிக்க ஸ்ரீ சங்கரநாராயணர் கோவில் மிக அருகில் (சுமார் 300 மீட்டர்) அமைந்துள்ளது.",
+    "intro_p2":  "பக்தர்கள், குடும்பங்கள், சுற்றுலா பயணிகள் மற்றும் தொழில் நிமித்தமாக வருவோருக்கு தூய்மையான AC அறைகள், உயர்தர சைவ/அசைவ உணவகம் மற்றும் 24 மணி நேர பாதுகாப்பு சேவை வழங்குகிறோம்.",
+    "intro_btn_facilities":  "வசதிகளை அறிய",
+    "intro_btn_story":  "எங்கள் வரலாறு",
+    "why_badge":  "சிறப்பம்சங்கள்",
+    "why_title":  "ஏன் AAR ராயல் ரெசிடென்சி?",
+    "why_subtitle":  "உங்கள் சங்கரன்கோவில் பயணத்தை மறக்க முடியாத இனிமையான அனுபவமாக மாற்றும் வசதிகள்.",
+    "why_h1":  "கோவிலுக்கு 5 நிமிடம் நடை",
+    "why_p1":  "ஸ்ரீ சங்கரநாராயணர் கோவிலுக்கு மிக எளிதாக 5 நிமிடத்தில் நடந்து செல்லலாம்.",
+    "why_h2":  "100% Split AC அறைகள்",
+    "why_p2":  "குளிர்சாதன வசதி, மென்மையான படுக்கை, அதிவேக Wi-Fi மற்றும் Smart TV.",
+    "why_h3":  "சுவையான அரண்மனை உணவகம்",
+    "why_p3":  "தூய சைவ உணவுகள் மற்றும் பாரம்பரிய தென் மாவட்ட அசைவ சுவை விருந்து.",
+    "why_h4":  "பாதுகாப்பான வாகன பார்க்கிங்",
+    "why_p4":  "கார்கள் மற்றும் சுற்றுலா வாகனங்களுக்கு 24/7 CCTV கண்காணிப்புடன் கூடிய இலவச பார்க்கிங்.",
+    "stays_badge":  "தங்கும் அறைகள்",
+    "stays_title":  "எங்கள் சொகுசு அறைகள் & சூட்கள்",
+    "room_std_title":  "ஸ்டாண்டர்ட் அறை",
+    "room_std_price":  "₹1,499",
+    "room_price_per_night":  "/ இரவு",
+    "room_std_f1":  "Split AC குளிர்சாதன வசதி",
+    "room_std_f2":  "இலவச அதிவேக Wi-Fi",
+    "room_std_f3":  "Flat Screen LED TV",
+    "room_std_f4":  "24/7 ரூம் சர்வீஸ் & வெந்நீர் வசதி",
+    "room_dlx_title":  "டீலக்ஸ் அறை",
+    "room_dlx_price":  "₹2,499",
+    "room_dlx_f1":  "அகலமான கிங் சைஸ் படுக்கை",
+    "room_dlx_f2":  "பிரீமியம் AC & இன்டீரியர் வடிவமைப்பு",
+    "room_dlx_f3":  "அதிவேக இலவச Wi-Fi",
+    "room_dlx_f4":  "நவீன குளியலறை & டாய்லெட்ரீஸ்",
+    "room_fam_title":  "ராயல் ஃபேமிலி சூட்",
+    "room_fam_price":  "₹3,999",
+    "room_fam_f1":  "2 கிங் சைஸ் படுக்கைகள் (4-5 நபர்கள்)",
+    "room_fam_f2":  "பிரத்யேக சிட்டிங் லவுஞ்ச் வசதி",
+    "room_fam_f3":  "காலை டீ / காபி காம்ப்ளிமென்டரி",
+    "room_fam_f4":  "24/7 முன்னுரிமை சேவை",
+    "btn_view_details":  "விவரம் காண்க",
+    "btn_book_whatsapp":  "WhatsApp-ல் பதிவு செய்க",
+    "comp_title":  "அறை ஒப்பீட்டு அட்டவணை",
+    "comp_th_features":  "வசதிகள்",
+    "comp_th_std":  "ஸ்டாண்டர்ட்",
+    "comp_th_dlx":  "டீலக்ஸ்",
+    "comp_th_fam":  "ஃபேமிலி சூட்",
+    "comp_row_tariff":  "கட்டணம் / இரவு",
+    "comp_row_occ":  "நபர்கள் எண்ணிக்கை",
+    "comp_occ_std":  "2 பெரியவர்கள்",
+    "comp_occ_dlx":  "2 பெரியவர்கள் + 1 குழந்தை",
+    "comp_occ_fam":  "4 - 5 நபர்கள் / குடும்பம்",
+    "comp_row_bed":  "படுக்கை வகை",
+    "comp_bed_std":  "1 டபுள் பெட்",
+    "comp_bed_dlx":  "1 கிங் சைஸ் பெட்",
+    "comp_bed_fam":  "2 கிங் சைஸ் டபுள் பெட்",
+    "comp_row_ac":  "Air Conditioning",
+    "comp_row_wifi":  "இலவச Wi-Fi",
+    "comp_row_hotwater":  "24 மணி நேர வெந்நீர்",
+    "comp_yes":  "24 மணி நேரமும் உண்டு",
+    "comp_btn_all":  "முழு அறை விவரங்களை அறிய",
+    "stats_guests":  "மகிழ்ச்சியான விருந்தினர்கள்",
+    "stats_rooms":  "சொகுசு அறைகள்",
+    "stats_experience":  "வருட பாரம்பரிய சேவை",
+    "stats_support":  "24/7 வாடிக்கையாளர் உதவி",
+    "tour_badge":  "நேரடி காட்சி",
+    "tour_title":  "ஹோட்டல் காட்சிகளை பார்வையிடுங்கள்",
+    "tour_desc":  "எங்கள் வரவேற்பறை, டீலக்ஸ் அறைகள் மற்றும் உணவகத்தின் புகைப்படங்களை கண்டுகளியுங்கள்.",
+    "tour_btn_gallery":  "படத்தொகுப்பு காண்க",
+    "tour_btn_video":  "WhatsApp-ல் வீடியோ பெற",
+    "dining_badge":  "அரண்மனை உணவகம்",
+    "dining_title":  "தென் தமிழகத்தின் சுவையான விருந்து",
+    "dining_desc":  "சுடச்சுட தென் இந்திய பாரம்பரிய சைவ தலைவாழை இலை சாப்பாடு, நறுமணமிக்க செட்டிநாடு மற்றும் நெல்லை அசைவ உணவுகள் சுகாதாரமான முறையில் தயார் செய்யப்படுகிறது.",
+    "dining_btn_menu":  "உணவு மெனு காண்க",
+    "reviews_badge":  "மதிப்புரைகள்",
+    "reviews_title":  "விருந்தினர்களின் கருத்துக்கள்",
+    "reviews_subtitle":  "850+ பக்தர்கள் மற்றும் குடும்பங்களின் 4.8 / 5.0 நட்சத்திர மதிப்பீடு.",
+    "reviews_btn_all":  "அனைத்து மதிப்புரைகளையும் படிக்க",
+    "map_badge":  "அமைவிடம்",
+    "map_title":  "வரைபடத்தில் எங்களை கண்டறிய",
+    "map_subtitle":  "ஸ்ரீ சங்கரநாராயணர் கோவில் அருகில் எளிதான சாலை வசதியுடன்.",
+    "cta_badge":  "உடனடி முன்பதிவு",
+    "cta_title":  "சங்கரன்கோவிலில் உங்கள் தங்குதலை இன்றே பதிவு செய்யுங்கள்",
+    "cta_desc":  "குறைந்த கட்டணத்தில் உடனடி உறுதிப்படுத்தலுக்கு WhatsApp வழியாக முன்பதிவு செய்யுங்கள்.",
+    "cta_btn_book":  "WhatsApp-ல் முன்பதிவு செய்க",
+    "footer_about_title":  "AAR Royal Residency",
+    "footer_about_desc":  "சங்கரன்கோவிலில் அரச குடும்பத்திற்கு இணையான தங்குமிடம், சுவையான உணவு மற்றும் பாசமிக்க உபசரிப்பு. ஸ்ரீ சங்கரநாராயணர் கோவில் அருகில் உங்கள் அமைதியான இல்லம்.",
+    "footer_explore_title":  "பக்கங்கள்",
+    "footer_contact_title":  "தொடர்புக்கு",
+    "footer_location_title":  "அமைவிடம்",
+    "footer_address":  "சங்கரன்கோவில், தென்காசி மாவட்டம், தமிழ்நாடு - 627756",
+    "footer_phone":  "+91 98765 43210",
+    "footer_email":  "reservations@aarroyalresidency.com",
+    "footer_copyright":  "© 2026 AAR Royal Residency. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+    "footer_privacy":  "தனியுரிமைக் கொள்கை",
+    "footer_terms":  "விதிமுறைகள் & நிபந்தனைகள்",
+    "footer_credit":  "Designed and Maintained by Aditya Skill Gate IT Solution",
+    "about_page_title":  "எங்களைப் பற்றி | AAR Royal Residency",
+    "about_banner_badge":  "பாரம்பரியமும் சேவையும்",
+    "about_banner_title":  "எங்கள் வரலாறு & அரச விருந்தோம்பல்",
+    "about_banner_desc":  "சங்கரன்கோவிலில் அமைதியான சூழல், உயர்தர வசதிகள் மற்றும் இதயப்பூர்வமான சேவை.",
+    "about_story_badge":  "வரவேற்பு",
+    "about_story_title":  "சங்கரன்கோவிலில் உங்கள் அமைதியான இல்லம்",
+    "about_story_p1":  "தென்காசி மாவட்டத்தின் ஆன்மீக பூமியான சங்கரன்கோவிலில், AAR Royal Residency பக்தர்கள், குடும்பங்கள் மற்றும் சுற்றுலா பயணிகளுக்கு அரச குடும்பத்திற்கு இணையான உபசரிப்பை வழங்குவதை நோக்கமாகக் கொண்டு தொடங்கப்பட்டது.",
+    "about_story_p2":  "வரலாற்று சிறப்புமிக்க ஸ்ரீ சங்கரநாராயணர் கோவிலில் இருந்து வெறும் 300 மீட்டர் தொலைவில் அமைந்துள்ளதால், அதிகாலை தரிசனம் மற்றும் திருவிழாக்களுக்கு எளிதாக சென்று வர முடியும்.",
+    "about_story_p3":  "நேர்த்தியாக வடிவமைக்கப்பட்ட ஏசி அறைகள், சுவையான உணவு, 24/7 வெந்நீர் மற்றும் கனிவான சேவையுடன் உங்களை அன்போடு வரவேற்கிறோம்.",
+    "about_mission_title":  "எங்கள் நோக்கம்",
+    "about_mission_desc":  "\"அதிதி தேவோ பவ\" என்ற பாரதத்தின் புனித பாரம்பரியத்திற்கு ஏற்ப, தூய்மை, பாதுகாப்பு மற்றும் அரச உபசரிப்பை வழங்கி வாடிக்கையாளர்களின் முழுமையான மனநிறைவை பெறுவதே எங்கள் நோக்கம்.",
+    "about_vision_title":  "எங்கள் தொலைநோக்கு",
+    "about_vision_desc":  "தென் தமிழகத்தின் ஆன்மீக மற்றும் சுற்றுலா வழித்தடங்களில், தரம் மற்றும் நற்பெயருக்கு சான்றாக விளங்கும் முன்னணி பிரீமியம் தங்கும் விடுதியாக நிலைத்திருப்பது.",
+    "about_quote_text":  "\"சங்கரன்கோவிலுக்கு வருகை தரும் ஒவ்வொரு பக்தரையும் பயணியையும் எங்கள் குடும்ப உறுப்பினராக பாவித்து அன்புடன் உபசரிப்பதே எங்கள் தலையாய கடமை.\"",
+    "about_quote_author":  "நிர்வாகக் குழு",
+    "rooms_page_title":  "அறைகள் & சூட்கள் | AAR Royal Residency",
+    "rooms_banner_badge":  "தங்குமிடம்",
+    "rooms_banner_title":  "எங்கள் சொகுசு அறைகள் & சூட்கள்",
+    "rooms_banner_desc":  "பக்தர்கள் மற்றும் குடும்பத்தினரின் அமைதியான ஓய்விற்காக வடிவமைக்கப்பட்ட பிரீமியம் அறைகள்.",
+    "rooms_rules_badge":  "வழிகாட்டுதல்கள்",
+    "rooms_rules_title":  "அறை விதிமுறைகள் & நேரங்கள்",
+    "rooms_checkin_title":  "வருகை & வெளியேறும் நேரம்",
+    "rooms_checkin_text":  "வருகை நேரம்: நண்பகல் 12:00 PM | வெளியேறும் நேரம்: காலை 11:00 AM. 24 மணி நேர நெகிழ்வான வருகை அனுமதி உண்டு.",
+    "rooms_id_title":  "விருந்தினர் விதிமுறைகள்",
+    "rooms_id_text":  "அனைத்து பெரியவர்களுக்கும் அரசு அடையாள அட்டை அவசியம். இரவு 10:30 மணிக்கு மேல் அமைதி காக்கப்பட வேண்டும்.",
+    "dining_page_title":  "அரண்மனை உணவகம் | AAR Royal Residency",
+    "dining_banner_badge":  "சுவையான விருந்து",
+    "dining_banner_title":  "அரண்மனை உணவகம் & விருந்து",
+    "dining_banner_desc":  "பாரம்பரிய தென் தமிழக சுவை, நறுமணமிக்க மசாலாக்கள் மற்றும் சுகாதாரமான விருந்தோம்பல்.",
+    "dining_ambience_badge":  "அமைதியான சூழல்",
+    "dining_ambience_title":  "அரச குடும்ப உணர்வுடன் உணவருந்துங்கள்",
+    "dining_ambience_p1":  "AAR Royal Residency உணவகத்தில், குடும்பத்தினர் மற்றும் நண்பர்களுடன் அமைதியாக அமர்ந்து உணவருந்த விசாலமான டைனிங் ஹால் வசதி உள்ளது.",
+    "dining_ambience_p2":  "எங்கள் தலைமை சமையல் கலைஞர்கள் இயற்கை முறையில் விளைந்த காய்கறிகள் மற்றும் பாரம்பரிய மசாலாப் பொருட்களைக் கொண்டு சுவையான உணவுகளைத் தயாரிக்கின்றனர்.",
+    "dining_specials_badge":  "சிறப்பு உணவுகள்",
+    "dining_specials_title":  "எங்கள் முதன்மை உணவு வகைகள்",
+    "dining_spec_1_title":  "தென்னிந்திய தலைவாழை இலை சாப்பாடு",
+    "dining_spec_1_desc":  "சுடச்சுட சாதம், சாம்பார், வத்தக்குழம்பு, ரசம், கூட்டு, பொரியல், அப்பளம், தயிர் & பாயாசம் அடங்கிய முழுமையான மதிய உணவு.",
+    "dining_spec_2_title":  "செட்டிநாடு மிளகு சிக்கன் வறுவல்",
+    "dining_spec_2_desc":  "அம்மியில் அரைத்த மிளகு, சின்ன வெங்காயம் மற்றும் கறிவேப்பிலை மணத்துடன் கூடிய நாவில் எச்சில் ஊறவைக்கும் வறுவல்.",
+    "dining_spec_3_title":  "ராயல் பன்னீர் பட்டர் மசாலா",
+    "dining_spec_3_desc":  "சுத்தமான வெண்ணெய் மற்றும் முந்திரி தக்காளி கிரேவியில் மென்மையான பன்னீர் துண்டுகள் சேர்ந்த சுவையான உணவு.",
+    "dining_menu_badge":  "சுவை பட்டியல்",
+    "dining_menu_title":  "உணவு மெனு விபரம்",
+    "dining_veg_title":  "🥗 தூய சைவ உணவுகள்",
+    "dining_nonveg_title":  "🍗 அசைவ உணவுகள்",
+    "dining_res_badge":  "டேபிள் முன்பதிவு",
+    "dining_res_title":  "முன்பதிவு செய்ய",
+    "dining_res_btn":  "WhatsApp-ல் டேபிள் பதிவு செய்க",
+    "fac_page_title":  "விடுதி வசதிகள் | AAR Royal Residency",
+    "fac_banner_badge":  "சிறப்பம்சங்கள்",
+    "fac_banner_title":  "உயர்தர விடுதி வசதிகள்",
+    "fac_banner_desc":  "உங்கள் தங்குதல் இனிமையாகவும் பாதுகாப்பாகவும் அமைய வடிவமைக்கப்பட்ட பிரீமியம் வசதிகள்.",
+    "fac_grid_badge":  "சுகமான தங்குமிடம்",
+    "fac_grid_title":  "எங்கள் 12 முதன்மை வசதிகள்",
+    "fac_1_title":  "இலவச அதிவேக Wi-Fi",
+    "fac_1_desc":  "அனைத்து அறைகளிலும் லேப்டாப் மற்றும் ஸ்மார்ட்போனில் தடையின்றி பயன்படுத்த அதிவேக ஆப்டிகல் பைபர் இணைய வசதி.",
+    "fac_2_title":  "100% Split AC அறைகள்",
+    "fac_2_desc":  "அனைத்து அறை பிரிவுகளிலும் ரிமோட் கண்ட்ரோல் வசதியுடன் கூடிய நவீன ஏர் கண்டிஷனர் வசதி.",
+    "fac_3_title":  "பாதுகாப்பான வாகன பார்க்கிங்",
+    "fac_3_desc":  "கார்கள், வேன்கள் மற்றும் சுற்றுலா பேருந்துகளுக்கு போதுமான இடவசதியுடன் கூடிய 24 மணி நேர சிசிடிவி பார்க்கிங்.",
+    "fac_4_title":  "24/7 அறை சேவை (Room Service)",
+    "fac_4_desc":  "காலை காபி, டீ, குடிநீர் மற்றும் உணவுகளை உங்கள் அறை வாசலுக்கே கொண்டு வந்து சேர்க்கும் துரித சேவை.",
+    "fac_5_title":  "24/7 வரவேற்பறை உதவி (Front Desk)",
+    "fac_5_desc":  "இரவு நேர வருகை, தகவல் உதவிகள் மற்றும் கோவில் தரிசன நேர வழிகாட்டுதலுக்கு எந்நேரமும் தயாராக உள்ளோம்.",
+    "fac_6_title":  "100% ஜெனரேட்டர் மின்சார வசதி",
+    "fac_6_desc":  "மின் தடை ஏற்பட்டாலும் உடனடி தானியங்கி ஜெனரேட்டர் மூலம் AC, லைட் மற்றும் லிப்ட் தடையின்றி இயங்கும்.",
+    "fac_7_title":  "24 மணி நேர CCTV பாதுகாப்பு",
+    "fac_7_desc":  "விருந்தினர்கள் மற்றும் குடும்பத்தினரின் பாதுகாப்பை உறுதி செய்ய அனைத்து தளங்களிலும் சிசிடிவி கண்காணிப்பு.",
+    "fac_8_title":  "தினசரி அறை தூய்மைப் பணி",
+    "fac_8_desc":  "தினமும் தூய்மையான படுக்கை விரிப்புகள், சுத்தமான துண்டுகள் மற்றும் கிருமிநாசினி கொண்டு தூய்மை செய்யப்படும் அறைகள்.",
+    "fac_9_title":  "துரித லாண்ட்ரி சேவை",
+    "fac_9_desc":  "கோவில் திருவிழாக்கள் மற்றும் விசேஷங்களுக்கு உடைகளை விரைவாக துவைத்து அயர்ன் செய்து தரும் வசதி.",
+    "fac_10_title":  "டிராவல் & டாக்ஸி உதவி",
+    "fac_10_desc":  "குற்றாலம் அருவி, கழுகுமலை, மற்றும் ரயில் நிலையங்களுக்கு செல்ல நம்பகமான ஏசி கார் வாடகைக்கு ஏற்பாடு.",
+    "fac_11_title":  "அரண்மனை உணவகம்",
+    "fac_11_desc":  "சுவையான தென் இந்திய சைவ உணவுகள் மற்றும் அசைவ உணவுகள் சுகாதாரமான முறையில் தயார் செய்யப்படுகிறது.",
+    "fac_12_title":  "24 மணி நேர வெந்நீர் வசதி (Geyser)",
+    "fac_12_desc":  "அதிகாலை கோவில் தரிசனத்திற்கு குளிப்பதற்கு அனைத்து குளியலறைகளிலும் 24 மணி நேரமும் சுடுநீர் வசதி.",
+    "att_page_title":  "சுற்றுலா இடங்கள் | AAR Royal Residency",
+    "att_banner_badge":  "சுற்றுலா வழிகாட்டி",
+    "att_banner_title":  "சங்கரன்கோவில் & சுற்றுவட்டார ஆன்மீக இடங்கள்",
+    "att_banner_desc":  "புனித திருத்தலங்கள், மூலிகை அருவிகள் மற்றும் பாரம்பரிய கைத்தறி பட்டு சந்தைகள்.",
+    "att_list_badge":  "ஆன்மீக இடங்கள்",
+    "att_list_title":  "பார்க்க வேண்டிய முக்கிய இடங்கள்",
+    "att_1_title":  "ஸ்ரீ சங்கரநாராயணர் திருக்கோவில்",
+    "att_1_dist":  "5 நிமிடம் நடை (~300 மீ)",
+    "att_1_desc":  "சிவன் (சங்கரன்) மற்றும் விஷ்ணு (நாராயணன்) ஒன்றிணைந்த அரிய திருக்கோலம், கோமதி அம்மன் சன்னதி, மற்றும் நோய்களைத் தீர்க்கும் புற்றுமண் பிரசித்தி பெற்றது.",
+    "att_2_title":  "பாரம்பரிய கைத்தறி பட்டு & காட்டன் புடவை சந்தை",
+    "att_2_dist":  "2 நிமிடம் நடை",
+    "att_2_desc":  "நேரடியாக நெசவாளர்களிடம் இருந்து தூய காட்டன் புடவைகள், வேஷ்டிகள், பட்டுச் சேலைகளை மொத்த விலையில் வாங்கலாம்.",
+    "att_3_title":  "குற்றாலம் மூலிகை அருவிகள்",
+    "att_3_dist":  "45 நிமிடம் பயணம் (~42 கி.மீ)",
+    "att_3_desc":  "மேற்கு தொடர்ச்சி மலையில் உள்ள மூலிகை மரங்களை தழுவி கொட்டும் இயற்கை நீர்வீழ்ச்சிகள். பேரருவி, ஐந்தருவி, பழைய குற்றாலம் அருவிகள்.",
+    "att_matrix_badge":  "தொலைவு விபரம்",
+    "att_matrix_title":  "ஹோட்டலில் இருந்து முக்கிய இடங்களின் தூரம்",
+    "att_th_dest":  "இடம் / தலம்",
+    "att_th_dist":  "தூரம்",
+    "att_th_time":  "பயண நேரம்",
+    "att_th_mode":  "பயண வசதி",
+    "att_taxi_badge":  "டிராவல் டெஸ்க்",
+    "att_taxi_title":  "டாக்ஸி மற்றும் சுற்றுலா வாகன உதவி தேவையா?",
+    "att_taxi_desc":  "வரவேற்பறையில் கோவில் சுற்றுலா, குற்றாலம் அருவி பயணம் மற்றும் ரயில் நிலைய பிக்கப் செய்ய ஏசி டாக்ஸிகள் ஏற்பாடு செய்யப்படுகிறது.",
+    "att_taxi_btn":  "WhatsApp-ல் டாக்ஸி பதிவு செய்க",
+    "gal_page_title":  "படத்தொகுப்பு | AAR Royal Residency",
+    "gal_banner_badge":  "புகைப்பட தொகுப்பு",
+    "gal_banner_title":  "அரண்மனை அழகு காட்சிகள்",
+    "gal_banner_desc":  "AAR Royal Residency-ன் அறைகள், உணவகம் மற்றும் வெளிப்புற அழகு காட்சிகள்.",
+    "gal_tab_all":  "அனைத்தும்",
+    "gal_tab_rooms":  "அறைகள்",
+    "gal_tab_lobby":  "வரவேற்பறை",
+    "gal_tab_restaurant":  "உணவகம்",
+    "gal_tab_exterior":  "வெளிப்புறம்",
+    "offers_page_title":  "சிறப்பு சலுகைகள் | AAR Royal Residency",
+    "offers_banner_badge":  "சிறப்பு சலுகைகள்",
+    "offers_banner_title":  "தள்ளுபடி & தங்குமிட பேக்கேஜ்கள்",
+    "offers_banner_desc":  "குறைந்த கட்டணத்தில் குடும்பத்தினருடன் சங்கரன்கோவிலில் அரச உபசரிப்புடன் தங்கி மகிழுங்கள்.",
+    "offers_grid_badge":  "வரையறுக்கப்பட்ட சலுகை",
+    "offers_grid_title":  "எங்கள் சிறப்பு தங்குமிட பேக்கேஜ்கள்",
+    "offer_1_tag":  "அதிகம் விரும்பப்படும் சலுகை",
+    "offer_1_disc":  "15% தள்ளுபடி",
+    "offer_1_title":  "வார இறுதி ஆன்மீக பேக்கேஜ்",
+    "offer_1_desc":  "ஸ்ரீ சங்கரநாராயணர் கோவில் தரிசனத்திற்கு வரும் பக்தர்களுக்காக பிரத்யேகமாக வடிவமைக்கப்பட்டது. முன்கூட்டியே செக்-இன் மற்றும் காலை காபி இலவசம்.",
+    "offer_2_tag":  "குடும்பத்தினர் தேர்வு",
+    "offer_2_disc":  "20% தள்ளுபடி",
+    "offer_2_title":  "ராயல் ஃபேமிலி ஸ்டே பேக்கேஜ்",
+    "offer_2_desc":  "ஃபேமிலி சூட் அறையை 2 அல்லது அதற்கு மேற்பட்ட இரவுகளுக்கு பதிவு செய்து கூடுதல் 20% தள்ளுபடியுடன் காலை உணவை அனுபவியுங்கள்.",
+    "offer_3_tag":  "திருவிழா சலுகை",
+    "offer_3_disc":  "இரவுக்கு ₹500 தள்ளுபடி",
+    "offer_3_title":  "ஆடித் தபசு & திருவிழா சலுகை",
+    "offer_3_desc":  "சங்கரன்கோவில் திருவிழா காலங்களில் முன்னதாகவே அறையை பதிவு செய்து சிறப்பு தள்ளுபடி கட்டணத்தை உறுதி செய்து கொள்ளுங்கள்.",
+    "offer_4_tag":  "குழு சலுகை",
+    "offer_4_disc":  "25% வரை தள்ளுபடி",
+    "offer_4_title":  "சுற்றுலா குழு & தொழில்முறை பேக்கேஜ்",
+    "offer_4_desc":  "3 அல்லது அதற்கு மேற்பட்ட அறைகளை பதிவு செய்யும் சுற்றுலா குழுக்கள் மற்றும் கார்ப்பரேட் நிறுவனங்களுக்கு சிறப்பு மொத்த தள்ளுபடி கட்டணங்கள்.",
+    "offer_btn_claim":  "சலுகையை பெற",
+    "rev_page_title":  "மதிப்புரைகள் | AAR Royal Residency",
+    "rev_banner_badge":  "விருந்தினர் அனுபவங்கள்",
+    "rev_banner_title":  "வாடிக்கையாளர் மதிப்புரைகள்",
+    "rev_banner_desc":  "ஆயிரக்கணக்கான பக்தர்கள் மற்றும் குடும்பங்கள் AAR Royal Residency-யை தேர்வு செய்வதற்கான காரணங்கள்.",
+    "rev_tab_all":  "அனைத்து மதிப்புரைகள்",
+    "rev_tab_temple":  "கோவில் பக்தர்கள்",
+    "rev_tab_family":  "குடும்பத்தினர்",
+    "rev_tab_business":  "தொழில்முறை பயணிகள்",
+    "rev_cta_title":  "சமீபத்தில் எங்களுடன் தங்கினீர்களா?",
+    "rev_cta_desc":  "உங்கள் மேலான அனுபவங்களை பகிர்ந்து மற்ற பக்தர்களுக்கும் சுற்றுலா பயணிகளுக்கும் வழிகாட்டுங்கள்.",
+    "rev_cta_btn":  "WhatsApp-ல் கருத்து பகிர்க",
+    "faq_page_title":  "கேள்வி-பதில்கள் | AAR Royal Residency",
+    "faq_banner_badge":  "உதவி & வழிகாட்டுதல்",
+    "faq_banner_title":  "அடிக்கடி கேட்கப்படும் கேள்விகள்",
+    "faq_banner_desc":  "AAR Royal Residency-ல் தங்குதல், வசதிகள் மற்றும் கொள்கைகள் குறித்த உங்கள் சந்தேகங்களுக்கான பதில்கள்.",
+    "faq_search_ph":  "🔍 தேடுங்கள் (எ.கா: செக்-இன், கோவில், பார்க்கிங், உணவு, கட்டணம்)...",
+    "faq_tab_all":  "அனைத்து கேள்விகள்",
+    "faq_tab_checkin":  "செக்-இன் & முன்பதிவு",
+    "faq_tab_rooms":  "அறைகள் & வசதிகள்",
+    "faq_tab_dining":  "உணவகம்",
+    "faq_tab_location":  "அமைவிடம் & சுற்றுலா",
+    "faq_tab_cancel":  "ரத்து & கட்டணம்",
+    "faq_cta_title":  "வேறு சந்தேகங்கள் உள்ளதா?",
+    "faq_cta_desc":  "எங்கள் 24/7 வாடிக்கையாளர் உதவி மையம் உங்களுக்கு உதவ எப்போதுமே தயாராக உள்ளது.",
+    "faq_cta_btn":  "WhatsApp-ல் கேட்க",
+    "contact_page_title":  "தொடர்புக்கு | AAR Royal Residency",
+    "contact_banner_badge":  "தொடர்புக்கு",
+    "contact_banner_title":  "எங்களை தொடர்பு கொள்ள",
+    "contact_banner_desc":  "அறை முன்பதிவு, கட்டண விவரங்கள் மற்றும் உதவிகளுக்கு 24 மணி நேரமும் அழைக்கலாம்.",
+    "contact_details_title":  "தொடர்பு விபரங்கள்",
+    "contact_card_addr_title":  "எங்கள் முகவரி",
+    "contact_card_phone_title":  "தொலைபேசி & முன்பதிவு",
+    "contact_card_wa_title":  "WhatsApp உதவி (24/7)",
+    "contact_card_hours_title":  "செயல்படும் நேரம்",
+    "contact_card_hours_desc":  "24 மணி நேரமும் செயல்படுகிறது • வாரத்தின் 7 நாட்களும்",
+    "contact_form_title":  "விசாரணை படிவம்",
+    "contact_lbl_name":  "முழு பெயர் *",
+    "contact_lbl_email":  "மின்னஞ்சல் முகவரி",
+    "contact_lbl_phone":  "தொலைபேசி எண் *",
+    "contact_lbl_subject":  "விசாரணை தலைப்பு *",
+    "contact_lbl_msg":  "தகவல் *",
+    "contact_btn_send":  "WhatsApp-ல் அனுப்பவும்",
+    "privacy_page_title":  "தனியுரிமைக் கொள்கை | AAR Royal Residency",
+    "privacy_banner_title":  "தனியுரிமைக் கொள்கை",
+    "privacy_banner_desc":  "விருந்தினர்களின் தனிப்பட்ட தகவல் பாதுகாப்பு மற்றும் வெளிப்படைத்தன்மை.",
+    "terms_page_title":  "விதிமுறைகள் & நிபந்தனைகள் | AAR Royal Residency",
+    "terms_banner_title":  "விதிமுறைகள் & நிபந்தனைகள்",
+    "terms_banner_desc":  "எங்கள் விருந்தினர்களின் அமைதியான மற்றும் பாதுகாப்பான தங்குதலுக்கான நடைமுறைகள்.",
+    "att_4_title":  "கழுகுமலை குடைவரைக் கோவில்கள் (வெட்டுவான் கோவில்)",
+    "att_4_dist":  "25 நிமிடம் பயணம் (~22 கி.மீ)",
+    "att_4_desc":  "தென்னகத்தின் எல்லோரா என்று போற்றப்படும் 8-ஆம் நூற்றாண்டு பாண்டியர் கால ஒற்றைக்கல் வெட்டுவான் கோவில் மற்றும் பிரசித்தி பெற்ற கழுகாசலமூர்த்தி முருகன் கோவில்.",
+    "contact_opt_booking":  "அறை முன்பதிவு விசாரணை",
+    "contact_opt_group":  "கோவில் சுற்றுலா / குழு முன்பதிவு",
+    "contact_opt_other":  "பொதுவான தகவல்",
+    "dining_cta_title":  "குடும்ப விருந்து மற்றும் விசேஷ உணவு முன்பதிவு",
+    "dining_cta_desc":  "குடும்பத்தினர் மற்றும் ஆன்மீக குழுவினருக்கான உணவு ஏற்பாடுகளை எங்கள் உணவக குழுவுடன் நேரடியாக பேசி பதிவு செய்யலாம்.",
+    "dining_btn_table":  "WhatsApp-ல் டேபிள் பதிவு செய்க",
+    "comp_ac_split":  "Split AC குளிர்சாதனம்",
+    "comp_ac_premium":  "பிரீமியம் Split AC"
+}
 };
+window.__LOCAL_DICTS.english = window.__LOCAL_DICTS.en;
+window.__LOCAL_DICTS.tamil = window.__LOCAL_DICTS.ta;
 
 const I18N = {
     currentLang: "en",
     translations: {},
-    supportedLanguages: ["en", "ta"],
+    supportedLanguages: ["en", "ta", "english", "tamil"],
+    observer: null,
+
+    // Safe persistent storage
+    getStoredLang() {
+        try {
+            const val = localStorage.getItem("aar_lang") || sessionStorage.getItem("aar_lang") || localStorage.getItem("language");
+            if (val) {
+                const lower = val.toLowerCase().trim();
+                if (lower === "ta" || lower === "tamil") return "ta";
+                if (lower === "en" || lower === "english") return "en";
+            }
+        } catch (e) {}
+        return "en";
+    },
+
+    setStoredLang(lang) {
+        const isTamil = (lang === "ta" || lang === "tamil");
+        const code = isTamil ? "ta" : "en";
+        const fullName = isTamil ? "tamil" : "english";
+        try {
+            localStorage.setItem("aar_lang", code);
+            localStorage.setItem("language", fullName);
+        } catch (e) {}
+        try {
+            sessionStorage.setItem("aar_lang", code);
+            sessionStorage.setItem("language", fullName);
+        } catch (e) {}
+    },
 
     async init() {
-        const savedLang = localStorage.getItem("aar_lang");
-        this.currentLang = (savedLang && this.supportedLanguages.includes(savedLang)) ? savedLang : "en";
+        this.currentLang = this.getStoredLang();
         
+        // Setup MutationObserver for dynamically injected components (navbar, footer, etc.)
+        this.initObserver();
+
+        // Load and apply initial language
         await this.loadLanguage(this.currentLang);
         this.bindEvents();
     },
 
-    async loadLanguage(lang) {
-        if (!this.supportedLanguages.includes(lang)) lang = "en";
-        this.currentLang = lang;
-        localStorage.setItem("aar_lang", lang);
-
-        try {
-            const res = await fetch(`locales/${lang}.json`);
-            if (res.ok) {
-                this.translations[lang] = await res.json();
-            } else {
-                throw new Error(`HTTP fetch status: ${res.status}`);
+    initObserver() {
+        if (this.observer || typeof MutationObserver === "undefined") return;
+        this.observer = new MutationObserver((mutations) => {
+            let shouldTranslate = false;
+            for (const mutation of mutations) {
+                if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+                    for (const node of mutation.addedNodes) {
+                        if (node.nodeType === 1) {
+                            if (node.hasAttribute && (node.hasAttribute("data-i18n") || node.querySelector("[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title]"))) {
+                                shouldTranslate = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (shouldTranslate) break;
             }
-        } catch (e) {
-            // Fallback for file:// or offline
-            if (window.__LOCAL_DICTS && window.__LOCAL_DICTS[lang]) {
-                this.translations[lang] = window.__LOCAL_DICTS[lang];
+            if (shouldTranslate) {
+                this.applyTranslations();
+                this.updateSwitcherUI();
+            }
+        });
+
+        const target = document.body || document.documentElement;
+        if (target) {
+            this.observer.observe(target, {
+                childList: true,
+                subtree: true
+            });
+        }
+    },
+
+    async loadLanguage(lang) {
+        const isTamil = (lang === "ta" || lang === "tamil");
+        const normalizedLang = isTamil ? "ta" : "en";
+        this.currentLang = normalizedLang;
+        this.setStoredLang(normalizedLang);
+
+        // 1. Immediate instant application using embedded dictionary
+        const embeddedDict = window.__LOCAL_DICTS ? (window.__LOCAL_DICTS[normalizedLang] || window.__LOCAL_DICTS[isTamil ? "tamil" : "english"]) : null;
+        if (embeddedDict) {
+            this.translations[normalizedLang] = Object.assign({}, embeddedDict);
+            this.applyTranslations();
+            this.updateSwitcherUI();
+            document.documentElement.lang = normalizedLang;
+        }
+
+        // 2. Fetch external JSON files:
+        // English button loads ONLY english.json content
+        // Tamil button loads ONLY tamil.json content
+        const fileCandidates = isTamil
+            ? ["locales/tamil.json", "locales/ta.json", "languages/tamil.json", "languages/ta.json"]
+            : ["locales/english.json", "locales/en.json", "languages/english.json", "languages/en.json"];
+
+        let loadedData = null;
+        for (const filePath of fileCandidates) {
+            try {
+                const res = await fetch(filePath);
+                if (res.ok) {
+                    loadedData = await res.json();
+                    break;
+                }
+            } catch (err) {
+                // Try next candidate
             }
         }
 
-        this.applyTranslations();
-        this.updateSwitcherUI();
-        document.documentElement.lang = lang;
+        if (loadedData) {
+            this.translations[normalizedLang] = Object.assign({}, embeddedDict || {}, loadedData);
+            this.applyTranslations();
+        }
 
-        // Dispatch language change event for other scripts (chatbot, booking, etc.)
-        window.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang: this.currentLang, dict: this.getDict() } }));
+        this.updateSwitcherUI();
+        document.documentElement.lang = normalizedLang;
+
+        // 3. Dispatch language change event for other scripts (chatbot, booking, etc.)
+        window.dispatchEvent(new CustomEvent("languageChanged", {
+            detail: { lang: this.currentLang, dict: this.getDict() }
+        }));
     },
 
     getDict() {
-        return this.translations[this.currentLang] || (window.__LOCAL_DICTS ? window.__LOCAL_DICTS[this.currentLang] : {}) || {};
+        const isTamil = (this.currentLang === "ta" || this.currentLang === "tamil");
+        const key = isTamil ? "ta" : "en";
+        return this.translations[key] ||
+               (window.__LOCAL_DICTS ? (window.__LOCAL_DICTS[key] || window.__LOCAL_DICTS[isTamil ? "tamil" : "english"]) : {}) ||
+               {};
     },
 
     translateKey(key) {
@@ -346,12 +826,26 @@ const I18N = {
                 el.setAttribute("title", dict[key]);
             }
         });
+
+        // Synchronize document title
+        const titleEl = document.querySelector("title[data-i18n]");
+        if (titleEl) {
+            const titleKey = titleEl.getAttribute("data-i18n");
+            if (dict[titleKey]) {
+                document.title = dict[titleKey];
+            }
+        }
     },
 
     updateSwitcherUI() {
+        const isTa = (this.currentLang === "ta" || this.currentLang === "tamil");
         document.querySelectorAll(".lang-btn").forEach(btn => {
-            const btnLang = btn.getAttribute("data-lang");
-            if (btnLang === this.currentLang) {
+            const btnLang = (btn.getAttribute("data-lang") || "").toLowerCase().trim();
+            const shouldBeActive = isTa
+                ? (btnLang === "ta" || btnLang === "tamil")
+                : (btnLang === "en" || btnLang === "english");
+
+            if (shouldBeActive) {
                 btn.classList.add("active");
                 btn.setAttribute("aria-pressed", "true");
             } else {
@@ -368,15 +862,19 @@ const I18N = {
             if (btn) {
                 e.preventDefault();
                 const targetLang = btn.getAttribute("data-lang");
-                if (targetLang && targetLang !== this.currentLang) {
-                    this.loadLanguage(targetLang);
+                if (targetLang) {
+                    const isTargetTa = (targetLang === "ta" || targetLang === "tamil");
+                    const isCurrentTa = (this.currentLang === "ta" || this.currentLang === "tamil");
+                    if (isTargetTa !== isCurrentTa) {
+                        this.loadLanguage(targetLang);
+                    }
                 }
             }
         });
     }
 };
 
-// Global helper for direct calls
+// Global helpers for external scripts
 function setLanguage(lang) {
     I18N.loadLanguage(lang);
 }
@@ -390,6 +888,10 @@ function t(key) {
 }
 
 // Auto initialize on DOM ready
-document.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+        I18N.init();
+    });
+} else {
     I18N.init();
-});
+}
