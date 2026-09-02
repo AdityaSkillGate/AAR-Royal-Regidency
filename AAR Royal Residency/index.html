@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAR Royal Residency | 5-Star Luxury Resort & Suites in SankaranKovil</title>
+    <meta name="description" content="AAR Royal Residency - Premier luxury hotel & resort in SankaranKovil near Sri Sankaranarayanar Temple. AC Rooms, Fine Dining Restaurant, 24/7 Room Service & Best Tariffs.">
+    <meta name="keywords" content="hotel in SankaranKovil, luxury hotel Tenkasi, AAR Royal Residency, accommodation Tamil Nadu, book hotel room, Sankaranarayanar temple hotel">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/floating-hub.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-home">
+
+    <!-- Dynamic Header Injection -->
+    <div id="navbar-container"></div>
+
+    <!-- Cinematic Hero Section with Multi-Slide Slider & Mouse Parallax -->
+    <section class="hero-slider hero-cinematic">
+        <!-- Background Slider Carousel with Slow Ken Burns Zoom -->
+        <div class="hero-slide-bg active" style="background-image: url('assets/hero/herobannel.jpeg');"></div>
+        <div class="hero-slide-bg" style="background-image: url('assets/hero/hero-2.jpg');"></div>
+        <div class="hero-slide-bg" style="background-image: url('assets/hero/hero-3.jpg');"></div>
+        <div class="hero-slide-bg" style="background-image: url('assets/hero/herobanner2.png');"></div>
+
+        <!-- Ambient Floating Canvas Particles -->
+        <canvas id="hero-particles-canvas"></canvas>
+
+        <!-- Floating Parallax Depth Badges -->
+        <div class="hero-floating-badge hero-badge-left" data-parallax-depth="-15">
+            <div class="badge-icon">👑</div>
+            <div>
+                <strong style="display:block; font-size: 13px; color: var(--accent);">5-Star Rated Luxury</strong>
+                <span style="font-size: 11px; opacity: 0.85;">SankaranKovil Resort</span>
+            </div>
+        </div>
+
+        <div class="hero-floating-badge hero-badge-right" data-parallax-depth="15">
+            <div class="badge-icon">🛕</div>
+            <div>
+                <strong style="display:block; font-size: 13px; color: var(--secondary-light);">300m to Temple</strong>
+                <span style="font-size: 11px; opacity: 0.85;">5 Mins Walk</span>
+            </div>
+        </div>
+
+        <!-- Animated Text Content -->
+        <div class="hero-content" data-parallax-depth="0">
+            <span class="badge-gold" data-i18n="hero_badge">✦ Welcome to 5-Star Royalty ✦</span>
+            <h1 data-i18n="hero_title">Comfortable Stay in <span class="gradient-text">SankaranKovil</span></h1>
+            <p data-i18n="hero_desc">Experience traditional warmth, modern luxury, and unmatched hospitality in the heart of Tenkasi District.</p>
+            <div class="hero-actions">
+                <a href="#stays" class="btn btn-primary" data-i18n="hero_btn_book">Book a Stay</a>
+                <a href="about.html" class="btn btn-outline" data-i18n="hero_btn_about">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Glassmorphic Availability Search Bar -->
+    <div class="search-container">
+        <form id="availability-form" class="booking-search-bar">
+            <div class="search-group">
+                <label for="checkin" data-i18n="search_checkin">Check-In Date</label>
+                <input type="date" id="checkin" required>
+            </div>
+            <div class="search-group">
+                <label for="checkout" data-i18n="search_checkout">Check-Out Date</label>
+                <input type="date" id="checkout" required>
+            </div>
+            <div class="search-group">
+                <label for="guests" data-i18n="search_guests">Guests</label>
+                <select id="guests">
+                    <option value="1 Guest" data-i18n="search_guests_1">1 Guest</option>
+                    <option value="2 Guests" data-i18n="search_guests_2">2 Guests</option>
+                    <option value="3 Guests" data-i18n="search_guests_3">3 Guests</option>
+                    <option value="4+ Guests" data-i18n="search_guests_4">4+ Family</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <label for="room-type" data-i18n="search_room_type">Room Type</label>
+                <select id="room-type">
+                    <option value="Standard Room" data-i18n="search_room_std">Standard Room (₹1,499)</option>
+                    <option value="Deluxe Room" data-i18n="search_room_dlx">Deluxe Room (₹2,499)</option>
+                    <option value="Family Suite" data-i18n="search_room_fam">Family Suite (₹3,999)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="search_btn">Check Availability</button>
+        </form>
+    </div>
+
+    <!-- Intro Section: Heritage of Hospitality -->
+    <section class="section container">
+        <div class="intro-layout">
+            <div class="intro-image-grid reveal-left">
+                <div class="intro-img-card">
+                    <img src="assets/hero/reception1.png" alt="AAR Royal Residency Reception Lobby">
+                </div>
+                <div class="intro-img-card">
+                    <img src="assets/hero/herobanner2.png" alt="AAR Royal Residency Luxury Room">
+                </div>
+            </div>
+            
+            <div class="intro-text-block reveal-right">
+                <span class="badge-luxury" data-i18n="intro_badge">Heritage & Comfort</span>
+                <h3 data-i18n="intro_title">A Sanctuary of Royal Hospitality</h3>
+                <p data-i18n="intro_p1">AAR Royal Residency offers travelers and pilgrims a serene, palace-like experience in SankaranKovil. We are conveniently situated just 300 meters (~5 minutes walk) from the historic Sri Sankaranarayanar Temple.</p>
+                <p data-i18n="intro_p2">Whether visiting for temple darshan, family vacation, or business, we provide impeccably clean AC rooms, authentic pure veg and non-veg dining, and 24/7 personalized care.</p>
+                <div style="margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap;">
+                    <a href="facilities.html" class="btn btn-outline-primary" data-i18n="intro_btn_facilities">Explore Facilities</a>
+                    <a href="about.html" class="btn btn-primary" data-i18n="intro_btn_story">Our Heritage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section (3D Tilt Cards) -->
+    <section class="section bg-secondary">
+        <div class="container text-center">
+            <span class="badge-gold" data-i18n="why_badge">Key Highlights</span>
+            <h2 data-i18n="why_title">Why Choose AAR Royal Residency?</h2>
+            <p data-i18n="why_subtitle">Thoughtful amenities designed to make your stay memorable and comfortable.</p>
+            
+            <div class="grid-4" style="margin-top: 40px;">
+                <div class="facility-card reveal">
+                    <div class="facility-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3 data-i18n="why_h1">5 Mins Walk to Temple</h3>
+                    <p data-i18n="why_p1">Reach Sri Sankaranarayanar Temple easily within 5 minutes for morning and evening darshan.</p>
+                </div>
+                <div class="facility-card reveal">
+                    <div class="facility-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                    </div>
+                    <h3 data-i18n="why_h2">100% Split AC Rooms</h3>
+                    <p data-i18n="why_p2">Modern temperature control, plush bedding, high-speed Wi-Fi, and smart entertainment.</p>
+                </div>
+                <div class="facility-card reveal">
+                    <div class="facility-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h3 data-i18n="why_h3">Palace Fine Dining</h3>
+                    <p data-i18n="why_p3">Authentic South Indian pure veg meals and traditional non-veg feasts cooked in separate kitchens.</p>
+                </div>
+                <div class="facility-card reveal">
+                    <div class="facility-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><path d="M9 16V8h4a2 2 0 0 1 0 4H9"/></svg>
+                    </div>
+                    <h3 data-i18n="why_h4">Secure Vehicle Parking</h3>
+                    <p data-i18n="why_p4">Spacious on-site parking for cars, vans, and buses with 24/7 CCTV surveillance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stays Section (3D Luxury Room Cards) -->
+    <section id="stays" class="section container">
+        <span class="badge-luxury text-center" style="display:block;" data-i18n="stays_badge">Accommodations</span>
+        <h2 class="text-center" data-i18n="stays_title">Our Luxurious Rooms & Suites</h2>
+        
+        <div class="grid-3" style="margin-top: 40px;">
+            <!-- Card 1: Standard -->
+            <div class="luxury-card reveal">
+                <div class="luxury-card-img-wrapper">
+                    <img src="assets/rooms/room1.png" alt="Standard Luxury Room">
+                </div>
+                <div class="stay-card-info">
+                    <h3 data-i18n="room_std_title">Standard Room</h3>
+                    <div class="stay-card-price"><span data-i18n="room_std_price">₹1,499</span> <span data-i18n="room_price_per_night">/ night</span></div>
+                    <ul class="stay-card-features">
+                        <li data-i18n="room_std_f1">Split AC Climate Control</li>
+                        <li data-i18n="room_std_f2">High-Speed Free Wi-Fi</li>
+                        <li data-i18n="room_std_f3">Flat Screen LED TV</li>
+                        <li data-i18n="room_std_f4">24/7 Hot Water & Room Service</li>
+                    </ul>
+                    <a href="rooms.html" class="btn btn-primary" style="width:100%; text-align:center;" data-i18n="btn_view_details">View Details</a>
+                </div>
+            </div>
+
+            <!-- Card 2: Deluxe -->
+            <div class="luxury-card reveal">
+                <div class="luxury-card-img-wrapper">
+                    <img src="assets/rooms/room2.png" alt="Deluxe Suite Bedroom">
+                </div>
+                <div class="stay-card-info">
+                    <h3 data-i18n="room_dlx_title">Deluxe Room</h3>
+                    <div class="stay-card-price"><span data-i18n="room_dlx_price">₹2,499</span> <span data-i18n="room_price_per_night">/ night</span></div>
+                    <ul class="stay-card-features">
+                        <li data-i18n="room_dlx_f1">King Size Bed & Seating Lounge</li>
+                        <li data-i18n="room_dlx_f2">Premium AC & Elegant Decor</li>
+                        <li data-i18n="room_dlx_f3">High-Speed Free Wi-Fi</li>
+                        <li data-i18n="room_dlx_f4">Complimentary Toiletries</li>
+                    </ul>
+                    <a href="rooms.html" class="btn btn-primary" style="width:100%; text-align:center;" data-i18n="btn_view_details">View Details</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Family Suite -->
+            <div class="luxury-card reveal">
+                <div class="luxury-card-img-wrapper">
+                    <img src="assets/rooms/room3.png" alt="Family Executive Suite">
+                </div>
+                <div class="stay-card-info">
+                    <h3 data-i18n="room_fam_title">Royal Family Suite</h3>
+                    <div class="stay-card-price"><span data-i18n="room_fam_price">₹3,999</span> <span data-i18n="room_price_per_night">/ night</span></div>
+                    <ul class="stay-card-features">
+                        <li data-i18n="room_fam_f1">2 King Beds (4-5 Guests)</li>
+                        <li data-i18n="room_fam_f2">Spacious Living Area</li>
+                        <li data-i18n="room_fam_f3">Complimentary Morning Tea/Coffee</li>
+                        <li data-i18n="room_fam_f4">Priority 24/7 Concierge</li>
+                    </ul>
+                    <a href="rooms.html" class="btn btn-primary" style="width:100%; text-align:center;" data-i18n="btn_view_details">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Comparison Preview Table -->
+        <div class="comparison-shell reveal-zoom" style="margin-top: 60px;">
+            <div class="matrix-header">
+                <span class="badge-luxury" data-i18n="stays_badge">Accommodations</span>
+                <h3 class="matrix-title" data-i18n="comp_title">Room Comparison Matrix</h3>
+                <span class="matrix-divider" aria-hidden="true"></span>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="comp_th_features">Features</th>
+                            <th data-i18n="comp_th_std">Standard Room</th>
+                            <th data-i18n="comp_th_dlx">Deluxe Room</th>
+                            <th data-i18n="comp_th_fam">Family Suite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong data-i18n="comp_row_tariff">Tariff / Night</strong></td>
+                            <td class="matrix-price">₹1,499</td>
+                            <td class="matrix-price">₹2,499</td>
+                            <td class="matrix-price">₹3,999</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_bed">Bed Type</strong></td>
+                            <td data-i18n="comp_bed_std">1 Double Bed</td>
+                            <td data-i18n="comp_bed_dlx">1 King Size Bed</td>
+                            <td data-i18n="comp_bed_fam">2 King Size Double Beds</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_occ">Max Occupancy</strong></td>
+                            <td data-i18n="comp_occ_std">2 Adults</td>
+                            <td data-i18n="comp_occ_dlx">2 Adults + 1 Child</td>
+                            <td data-i18n="comp_occ_fam">4 - 5 Family Members</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_ac">Air Conditioning</strong></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_wifi">Complimentary Wi-Fi</strong></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_hotwater">24-hr Hot Water</strong></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center" style="margin-top: 24px;">
+                <a href="rooms.html" class="btn btn-outline-primary" data-i18n="comp_btn_all">View All Room Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Live Stat Counters -->
+    <section class="section counter-section">
+        <div class="container">
+            <div class="grid-4">
+                <div class="counter-card">
+                    <h3 class="counter-number" data-target="15000" data-suffix="+">0</h3>
+                    <p data-i18n="stats_guests">Happy Guests</p>
+                </div>
+                <div class="counter-card">
+                    <h3 class="counter-number" data-target="35" data-suffix="+">0</h3>
+                    <p data-i18n="stats_rooms">Luxury Rooms</p>
+                </div>
+                <div class="counter-card">
+                    <h3 class="counter-number" data-target="8" data-suffix="+">0</h3>
+                    <p data-i18n="stats_experience">Years Experience</p>
+                </div>
+                <div class="counter-card">
+                    <h3 class="counter-number" data-target="24" data-suffix="/7">0</h3>
+                    <p data-i18n="stats_support">24/7 Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour Video Banner -->
+    <section class="section container">
+        <div class="video-tour-banner reveal-zoom">
+            <span class="badge-gold" data-i18n="tour_badge">Virtual Tour</span>
+            <h3 data-i18n="tour_title">Take a Glance at our Residency</h3>
+            <p style="max-width: 650px; margin: 0 auto 25px auto;" data-i18n="tour_desc">Explore our grand reception lobby, cozy suites, and restaurant ambience.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="gallery.html" class="btn btn-primary" data-i18n="tour_btn_gallery">Photo Gallery</a>
+                <a href="https://wa.me/919876543210?text=Hi%20AAR%20Royal%20Residency,%20please%20share%20hotel%20video%20tour%20and%20photos" target="_blank" class="btn btn-outline" data-i18n="tour_btn_video">Request Video on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining Highlights -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="intro-layout align-items-center">
+                <div class="intro-text-block reveal-left">
+                    <span class="badge-gold" data-i18n="dining_badge">Fine Dining</span>
+                    <h2 style="text-align:left;" data-i18n="dining_title">Flavors of South India</h2>
+                    <p data-i18n="dining_desc">Hot South Indian traditional banana leaf meals, flavorful Chettinad specialties, and aromatic Nellai biryani prepared with utmost hygiene.</p>
+                    <div style="margin-top: 24px;">
+                        <a href="restaurant.html" class="btn btn-primary" data-i18n="dining_btn_menu">View Dining Menu</a>
+                    </div>
+                </div>
+                <div class="intro-image-grid reveal-right">
+                    <div class="intro-img-card" style="width: 100%; height: 360px;">
+                        <img src="assets/restaurant/dining.jpeg" alt="Restaurant Dining Hall">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Preview -->
+    <section class="section container text-center">
+        <span class="badge-gold" data-i18n="reviews_badge">Guest Reviews</span>
+        <h2 data-i18n="reviews_title">What Our Guests Say</h2>
+        <p style="margin-bottom: 36px;" data-i18n="reviews_subtitle">Rated 4.8 / 5.0 by over 850+ pilgrims and families.</p>
+        
+        <div class="grid-3" style="text-align: left;">
+            <div class="facility-card reveal">
+                <div style="color: var(--accent); font-size: 18px; margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; font-size: 0.95rem; line-height: 1.65; color: var(--dark);">"Just 5 minutes walk from Sankaranarayanar Temple. Extremely convenient for early morning 5:30 AM darshan. Rooms are spotless and serene."</p>
+                <div style="margin-top: 16px; font-weight: 700; color: var(--primary);">— Sundararajan M. (Chennai)</div>
+            </div>
+            <div class="facility-card reveal">
+                <div style="color: var(--accent); font-size: 18px; margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; font-size: 0.95rem; line-height: 1.65; color: var(--dark);">"The Family Suite was very spacious for 5 of us. Delicious south indian meals at the restaurant and very secure parking."</p>
+                <div style="margin-top: 16px; font-weight: 700; color: var(--primary);">— Priya & Karthik (Bengaluru)</div>
+            </div>
+            <div class="facility-card reveal">
+                <div style="color: var(--accent); font-size: 18px; margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; font-size: 0.95rem; line-height: 1.65; color: var(--dark);">"Fast fiber Wi-Fi, powerful split AC, and reliable power backup. Hands down the best residency in SankaranKovil."</p>
+                <div style="margin-top: 16px; font-weight: 700; color: var(--primary);">— Rajesh Kumar (Madurai)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 36px;">
+            <a href="reviews.html" class="btn btn-outline-primary" data-i18n="reviews_btn_all">Read All Reviews</a>
+        </div>
+    </section>
+
+    <!-- Google Map Section -->
+    <section class="section bg-secondary text-center reveal">
+        <div class="container">
+            <span class="badge-gold" data-i18n="map_badge">Prime Location</span>
+            <h2 data-i18n="map_title">Locate Us on Google Maps</h2>
+            <p data-i18n="map_subtitle">Situated near Sri Sankaranarayanar Temple with easy road access.</p>
+            <div id="map-preview" style="margin-top: 2rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid rgba(13, 110, 253, 0.25);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.7562373848714!2d77.53253537533979!3d9.17644789089087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0697c5e515f141%3A0xacbcb5bfaae263ca!2sAAR%20ROYAL%20RESIDENCY!5e0!3m2!1sen!2sin!4v1787547564498!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Booking CTA Banner -->
+    <section class="section" style="background: var(--dark-gradient); color: var(--white); text-align: center; border-top: 1px solid rgba(13, 110, 253, 0.3);">
+        <div class="container">
+            <span class="badge-gold" data-i18n="cta_badge">Instant Reservation</span>
+            <h2 style="color: var(--white); margin-bottom: 15px;" data-i18n="cta_title">Reserve Your Stay in SankaranKovil Today</h2>
+            <p style="max-width: 600px; margin: 0 auto 28px auto; color: rgba(255, 255, 255, 0.85);" data-i18n="cta_desc">Enjoy direct booking discounts and instant confirmation without any middleman fees.</p>
+            <a href="https://wa.me/919876543210?text=Hi%20AAR%20Royal%20Residency,%20I%20would%20like%20to%20book%20a%20stay" target="_blank" class="btn btn-primary btn-lg" data-i18n="cta_btn_book">Book Directly on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Injection -->
+    <div id="footer-container"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/counters.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/sticky-booking.js"></script>
+
+    <!-- Hero Slideshow Carousel Controller Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".hero-slide-bg");
+            if (slides.length > 1) {
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove("active");
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add("active");
+                }, 5500);
+            }
+        });
+    </script>
+</body>
+</html>

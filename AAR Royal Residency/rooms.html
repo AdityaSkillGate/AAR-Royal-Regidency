@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="rooms_page_title">Rooms & Suites | AAR Royal Residency</title>
+    <meta name="description" content="AAR Royal Residency rooms and suites: Standard (₹1,499), Deluxe (₹2,499), Family Suite (₹3,999). Split AC, free Wi-Fi, 24/7 hot water, and room service.">
+    <meta name="keywords" content="luxury hotel suites, standard room price SankaranKovil, deluxe suite hotel, family stay SankaranKovil, hotel near Sankaranarayanar temple">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/rooms.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/floating-hub.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-rooms">
+
+    <!-- Dynamic Header Injection -->
+    <div id="navbar-container"></div>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('assets/hero/hero-2.jpg');">
+        <div class="page-banner-content">
+            <span class="badge-gold" data-i18n="rooms_banner_badge">Stay With Us</span>
+            <h1 data-i18n="rooms_banner_title">Our Luxury Rooms & Suites</h1>
+            <p data-i18n="rooms_banner_desc">Thoughtfully designed premium rooms for a peaceful and relaxing retreat.</p>
+        </div>
+    </section>
+
+    <!-- Rooms List Section (3D Row Cards) -->
+    <section class="section container">
+        <div class="rooms-list">
+            
+            <!-- Standard Room -->
+            <div class="room-row-card reveal">
+                <div class="room-row-img-wrapper">
+                    <img src="assets/rooms/room1.png" alt="Luxury Standard Room">
+                </div>
+                <div class="room-row-info">
+                    <div>
+                        <span class="badge-emerald">Cozy & Affordable</span>
+                        <h3 data-i18n="room_std_title">Standard Room</h3>
+                        <p class="room-description" data-i18n="room_std_f1">Comfortable budget stay with soft double bedding, split air-conditioning, free Wi-Fi, and 24/7 hot water.</p>
+                        
+                        <div class="room-amenity-grid">
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                                <span data-i18n="room_std_f2">High-Speed Free Wi-Fi</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                                <span data-i18n="room_std_f1">Split AC Climate Control</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17h20"/><path d="M6 17a6 6 0 0 1 12 0H6Z"/></svg>
+                                <span data-i18n="room_std_f4">24/7 Hot Water & Room Service</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/></svg>
+                                <span data-i18n="room_std_f3">Flat Screen LED TV</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-pricing-cta">
+                        <div class="room-pricing">
+                            <span class="room-price-lbl" data-i18n="comp_row_tariff">Tariff / Night</span>
+                            <span class="room-price-val"><span data-i18n="room_std_price">₹1,499</span> <span data-i18n="room_price_per_night">/ night</span></span>
+                        </div>
+                        <button onclick="bookRoomWhatsApp('Standard Room', '₹1,499')" class="btn btn-primary" data-i18n="btn_book_whatsapp">Book via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deluxe Room -->
+            <div class="room-row-card reveal">
+                <div class="room-row-img-wrapper">
+                    <img src="assets/rooms/room2.png" alt="Luxury Deluxe Suite Bedroom">
+                </div>
+                <div class="room-row-info">
+                    <div>
+                        <span class="badge-luxury">Premium Retreat</span>
+                        <h3 data-i18n="room_dlx_title">Deluxe Room</h3>
+                        <p class="room-description" data-i18n="room_dlx_f1">King size bed, elegant decor, premium split AC, cozy seating area, and modern bathroom amenities.</p>
+                        
+                        <div class="room-amenity-grid">
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                                <span data-i18n="room_dlx_f3">High-Speed Free Wi-Fi</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                                <span data-i18n="room_dlx_f2">Premium AC & Elegant Decor</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17h20"/><path d="M6 17a6 6 0 0 1 12 0H6Z"/></svg>
+                                <span data-i18n="room_std_f4">24/7 Hot Water & Room Service</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                <span data-i18n="room_dlx_f4">Complimentary Toiletries</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-pricing-cta">
+                        <div class="room-pricing">
+                            <span class="room-price-lbl" data-i18n="comp_row_tariff">Tariff / Night</span>
+                            <span class="room-price-val"><span data-i18n="room_dlx_price">₹2,499</span> <span data-i18n="room_price_per_night">/ night</span></span>
+                        </div>
+                        <button onclick="bookRoomWhatsApp('Deluxe Room', '₹2,499')" class="btn btn-primary" data-i18n="btn_book_whatsapp">Book via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Suite -->
+            <div class="room-row-card reveal">
+                <div class="room-row-img-wrapper">
+                    <img src="assets/rooms/room3.png" alt="Executive Family Suite">
+                </div>
+                <div class="room-row-info">
+                    <div>
+                        <span class="badge-gold">Royal Grandeur</span>
+                        <h3 data-i18n="room_fam_title">Royal Family Suite</h3>
+                        <p class="room-description" data-i18n="room_fam_f2">Spacious living space with two king size beds accommodating 4 to 5 guests with priority concierge service.</p>
+                        
+                        <div class="room-amenity-grid">
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                                <span data-i18n="room_std_f2">High-Speed Free Wi-Fi</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                                <span data-i18n="room_dlx_f2">Premium AC & Elegant Decor</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17h20"/><path d="M6 17a6 6 0 0 1 12 0H6Z"/></svg>
+                                <span data-i18n="room_fam_f4">Priority 24/7 Concierge</span>
+                            </div>
+                            <div class="room-amenity-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                <span data-i18n="room_fam_f3">Complimentary Morning Tea/Coffee</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-pricing-cta">
+                        <div class="room-pricing">
+                            <span class="room-price-lbl" data-i18n="comp_row_tariff">Tariff / Night</span>
+                            <span class="room-price-val"><span data-i18n="room_fam_price">₹3,999</span> <span data-i18n="room_price_per_night">/ night</span></span>
+                        </div>
+                        <button onclick="bookRoomWhatsApp('Family Suite', '₹3,999')" class="btn btn-primary" data-i18n="btn_book_whatsapp">Book via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Room Comparison Table -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="badge-luxury" data-i18n="stays_badge">Accommodations</span>
+                <h2 data-i18n="comp_title">Room Comparison Matrix</h2>
+            </div>
+            <div class="comparison-table-wrapper reveal-zoom" style="margin-top: 36px;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="comp_th_features">Features</th>
+                            <th data-i18n="comp_th_std">Standard Room</th>
+                            <th data-i18n="comp_th_dlx">Deluxe Room</th>
+                            <th data-i18n="comp_th_fam">Family Suite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong data-i18n="comp_row_tariff">Tariff / Night</strong></td>
+                            <td style="color: var(--primary); font-weight: 700;">₹1,499</td>
+                            <td style="color: var(--primary); font-weight: 700;">₹2,499</td>
+                            <td style="color: var(--primary); font-weight: 700;">₹3,999</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_bed">Bed Type</strong></td>
+                            <td data-i18n="comp_bed_std">1 Double Bed</td>
+                            <td data-i18n="comp_bed_dlx">1 King Size Bed</td>
+                            <td data-i18n="comp_bed_fam">2 King Size Double Beds</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_occ">Max Occupancy</strong></td>
+                            <td data-i18n="comp_occ_std">2 Adults</td>
+                            <td data-i18n="comp_occ_dlx">2 Adults + 1 Child</td>
+                            <td data-i18n="comp_occ_fam">4 - 5 Family Members</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_ac">Air Conditioning</strong></td>
+                            <td><span class="check-icon">✓</span> Split AC</td>
+                            <td><span class="check-icon">✓</span> Split AC</td>
+                            <td><span class="check-icon">✓</span> Premium Split AC</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_wifi">Complimentary Wi-Fi</strong></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="comp_row_hotwater">24-hr Hot Water</strong></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                            <td><span class="check-icon">✓</span> <span data-i18n="comp_yes">Available 24/7</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Rules & Check-In / Check-Out -->
+    <section class="section container reveal rules-section">
+        <div class="text-center">
+            <span class="badge-gold" data-i18n="rooms_rules_badge">Guidelines</span>
+            <h2 class="rules-heading" data-i18n="rooms_rules_title">Room Policies & Timings</h2>
+        </div>
+        <div class="rules-grid" style="margin-top: 36px;">
+            <div class="rule-card">
+                <div class="rule-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 14 14"></polyline>
+                    </svg>
+                </div>
+                <h3 data-i18n="rooms_checkin_title">Check-In & Check-Out</h3>
+                <ul class="rule-list">
+                    <li><strong>Check-In:</strong> 12:00 PM</li>
+                    <li><strong>Check-Out:</strong> 11:00 AM</li>
+                    <li data-i18n="rooms_checkin_text">Check-In: 12:00 PM | Check-Out: 11:00 AM. 24-hour flexible arrival available upon prior notice.</li>
+                </ul>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 data-i18n="rooms_id_title">Guest Guidelines</h3>
+                <ul class="rule-list">
+                    <li data-i18n="rooms_id_text">Valid government photo ID is mandatory for all adults. Quiet hours from 10:30 PM for peaceful rest.</li>
+                    <li data-i18n="why_p4">Spacious on-site parking for cars, vans, and buses with 24/7 CCTV surveillance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA Banner -->
+    <section class="section" style="background: var(--dark-gradient); color: var(--white); text-align: center; border-top: 1px solid rgba(13, 110, 253, 0.3);">
+        <div class="container">
+            <h2 style="color: var(--white);" data-i18n="cta_title">Reserve Your Stay in SankaranKovil Today</h2>
+            <p style="margin-bottom: 2rem; color: rgba(255, 255, 255, 0.85);" data-i18n="cta_desc">Enjoy direct booking discounts and instant confirmation without any middleman fees.</p>
+            <a href="https://wa.me/919876543210?text=Hi%20AAR%20Royal%20Residency,%20I%20would%20like%20to%20book%20a%20stay" target="_blank" class="btn btn-primary btn-lg" data-i18n="cta_btn_book">Book Directly on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Injection -->
+    <div id="footer-container"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/sticky-booking.js"></script>
+</body>
+</html>
