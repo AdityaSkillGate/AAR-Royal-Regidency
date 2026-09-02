@@ -1,0 +1,647 @@
+/* ================================================================
+   AAR Royal Residency — 5-Star Luxury Resort Master Design System
+   Modern Resort Aesthetics, Apple-Level Typography & Glassmorphism
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700&display=swap');
+
+/* CSS Reset & Base Rules */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--dark);
+    background-color: var(--neutral);
+    line-height: 1.68;
+    overflow-x: hidden;
+    position: relative;
+    selection-background-color: var(--primary);
+    selection-color: var(--white);
+}
+
+::selection {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Luxury Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--dark);
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    letter-spacing: 0.02em;
+}
+
+h2 {
+    font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-gradient);
+    margin: 10px auto 0;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-glow-primary);
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.container-narrow {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 90px 0;
+    position: relative;
+}
+
+.section-sm {
+    padding: 50px 0;
+}
+
+.bg-secondary {
+    background-color: var(--white);
+}
+
+.bg-dark {
+    background: var(--dark-gradient);
+    color: var(--white);
+}
+
+.bg-mesh {
+    background-image: var(--mesh-gradient);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Grids */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 5-Star Luxury Accent Badges */
+.badge-gold,
+.badge-luxury,
+.badge-emerald {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 12px;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.badge-gold {
+    color: #9A6500;
+    background: rgba(255, 183, 3, 0.14);
+    border: 1px solid rgba(255, 183, 3, 0.4);
+}
+
+.badge-luxury {
+    color: var(--primary);
+    background: rgba(13, 110, 253, 0.1);
+    border: 1px solid rgba(13, 110, 253, 0.25);
+}
+
+.badge-emerald {
+    color: var(--secondary-dark);
+    background: rgba(0, 184, 148, 0.12);
+    border: 1px solid rgba(0, 184, 148, 0.3);
+}
+
+/* ================================================================
+   5-Star Luxury Interactive Button System
+   ================================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.25;
+}
+
+/* Specular Shimmer Sweep Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.75s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    left: 140%;
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.985);
+    transition: transform 0.08s ease;
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 98, 232, 0.4), 0 0 0 1px #FFFFFF;
+}
+
+/* Primary CTA — 5-Star Royal Sapphire Gradient */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: var(--btn-primary-shadow);
+    text-shadow: 0 1px 2px rgba(11, 44, 120, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-hover);
+    color: var(--white);
+    transform: translateY(-2.5px);
+    box-shadow: var(--btn-primary-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Secondary CTA — Emerald Oasis Gradient */
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--btn-secondary-shadow);
+    text-shadow: 0 1px 2px rgba(0, 100, 80, 0.35);
+}
+
+.btn-secondary:hover {
+    background: var(--btn-secondary-hover);
+    color: var(--white);
+    transform: translateY(-2.5px);
+    box-shadow: var(--btn-secondary-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Accent / Gold CTA — Prestige Amber-Gold Gradient */
+.btn-accent,
+.btn-gold {
+    background: var(--btn-accent-bg);
+    color: #0B132B;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--btn-accent-shadow);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-accent:hover,
+.btn-gold:hover {
+    background: var(--btn-accent-hover);
+    color: #070D1E;
+    transform: translateY(-2.5px);
+    box-shadow: var(--btn-accent-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* WhatsApp Direct Booking CTA */
+.btn-whatsapp {
+    background: var(--btn-wa-bg);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: var(--btn-wa-shadow);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-whatsapp:hover {
+    background: var(--btn-wa-hover);
+    color: var(--white);
+    transform: translateY(-2.5px);
+    box-shadow: var(--btn-wa-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Outline CTA (Frosted Glass — for Dark / Cinematic Banners) */
+.btn-outline {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    border-color: var(--white);
+    color: var(--white);
+    transform: translateY(-2.5px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.22), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline Primary CTA (for Light Canvas Sections) */
+.btn-outline-primary {
+    background-color: rgba(26, 98, 232, 0.04);
+    color: #1A62E8;
+    border: 1.5px solid #1A62E8;
+    box-shadow: 0 2px 8px rgba(26, 98, 232, 0.08);
+}
+
+.btn-outline-primary:hover {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    border-color: transparent;
+    transform: translateY(-2.5px);
+    box-shadow: var(--btn-primary-shadow);
+    text-shadow: 0 1px 2px rgba(11, 44, 120, 0.4);
+}
+
+/* Button Size Variations */
+.btn-sm {
+    padding: 9px 22px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    gap: 6px;
+}
+
+.btn-lg {
+    padding: 17px 40px;
+    font-size: 1.02rem;
+    letter-spacing: 0.06em;
+    gap: 12px;
+}
+
+.btn-block,
+.btn-full {
+    width: 100%;
+    display: flex;
+}
+
+/* 3D Glass Cards with Specular Depth */
+.glass-card,
+.facility-card,
+.luxury-card {
+    background: var(--white);
+    border: 1px solid var(--page-card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.facility-card {
+    padding: 32px 24px;
+    text-align: center;
+    background: #FFFFFF;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(13, 110, 253, 0.35);
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(13, 110, 253, 0.1);
+}
+
+.facility-icon-wrapper {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 20px auto;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.08) 0%, rgba(0, 184, 148, 0.08) 100%);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.facility-card:hover .facility-icon-wrapper {
+    background: var(--primary-gradient);
+    color: var(--white);
+    transform: scale(1.1) rotate(4deg);
+    box-shadow: var(--shadow-glow-primary);
+}
+
+.facility-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+}
+
+.facility-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+.facility-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Luxury Room Card (3D Tilt Ready) */
+.luxury-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.luxury-card:hover {
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(13, 110, 253, 0.2);
+    border-color: rgba(13, 110, 253, 0.3);
+}
+
+.luxury-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 62%;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.luxury-card-img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+}
+
+.luxury-card:hover .luxury-card-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.stay-card-info {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.stay-card-info h3 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    color: var(--dark);
+}
+
+.stay-card-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    font-family: 'Cinzel', serif;
+    margin: 8px 0 16px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.stay-card-price span:last-child {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 500;
+}
+
+.stay-card-features {
+    list-style: none;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stay-card-features li {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stay-card-features li::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: rgba(0, 184, 148, 0.15);
+    color: var(--secondary);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+/* Page Banners (Cinematic Headers) */
+.page-banner {
+    position: relative;
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    overflow: hidden;
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%);
+    backdrop-filter: blur(2px);
+}
+
+.page-banner-content {
+    position: relative;
+    z-index: 10;
+    color: var(--white);
+    max-width: 900px;
+    margin-top: 50px;
+}
+
+.page-banner-content h1 {
+    color: var(--white);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    margin-bottom: 12px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.page-banner-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.15rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-zoom.active {
+    opacity: 1;
+    transform: scale(1);
+}

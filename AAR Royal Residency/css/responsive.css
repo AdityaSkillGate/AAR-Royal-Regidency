@@ -1,0 +1,95 @@
+/* ================================================================
+   AAR Royal Residency — Master Responsive System
+   ================================================================ */
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .section {
+        padding: 70px 0;
+    }
+    
+    h1 {
+        font-size: 2.6rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-slider {
+        min-height: 580px;
+        padding: 100px 0 80px 0;
+    }
+
+    .room-row-info {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 55px 0;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-slider {
+        min-height: 520px;
+        padding: 90px 0 60px 0;
+    }
+
+    .hero-content {
+        padding: 0 16px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .btn-lg {
+        padding: 15px 30px;
+        font-size: 0.96rem;
+    }
+
+    .room-amenity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rating-overview-card {
+        padding: 24px;
+    }
+
+    .contact-form-block {
+        padding: 28px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    .stay-card-info {
+        padding: 20px;
+    }
+
+    .facility-card {
+        padding: 24px 18px;
+    }
+}

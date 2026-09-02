@@ -1,0 +1,208 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star Luxury Rooms & Suites Styles
+   3D Room Cards, Hover Depth, Comparison Matrix & Policy Cards
+   ================================================================ */
+
+.rooms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* 3D Room Row Card */
+.room-row-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s ease;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .room-row-card {
+        grid-template-columns: 1.15fr 1.35fr;
+    }
+}
+
+.room-row-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(13, 110, 253, 0.25);
+    border-color: rgba(13, 110, 253, 0.35);
+}
+
+.room-row-img-wrapper {
+    position: relative;
+    min-height: 320px;
+    background: var(--dark-deep);
+    overflow: hidden;
+}
+
+.room-row-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+}
+
+.room-row-card:hover .room-row-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.room-row-info {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.room-row-info h3 {
+    font-size: 1.85rem;
+    color: var(--dark);
+    margin: 6px 0 10px 0;
+}
+
+.room-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+
+/* Amenity Icon Grid */
+.room-amenity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.room-amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.room-amenity-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+/* Pricing and CTA */
+.room-pricing-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.room-pricing {
+    display: flex;
+    flex-direction: column;
+}
+
+.room-price-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.room-price-val {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--primary);
+    font-family: 'Cinzel', serif;
+    line-height: 1.1;
+}
+
+.room-price-val span:last-child {
+    font-size: 0.95rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Room Rules & Guidelines */
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+@media (min-width: 768px) {
+    .rules-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.rule-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    transition: var(--transition);
+}
+
+.rule-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.rule-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.rule-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+    color: var(--dark);
+}
+
+.rule-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rule-list li {
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 22px;
+}
+
+.rule-list li::before {
+    content: '•';
+    color: var(--primary);
+    font-size: 1.4rem;
+    position: absolute;
+    left: 4px;
+    top: -4px;
+}

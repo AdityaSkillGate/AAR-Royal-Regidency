@@ -1,0 +1,137 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star FAQ Accordion Styles
+   ================================================================ */
+
+.faq-search-box {
+    max-width: 680px;
+    margin: 0 auto 36px auto;
+    position: relative;
+}
+
+.faq-search-box input {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid rgba(13, 110, 253, 0.25);
+    background: #FFFFFF;
+    font-size: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--dark);
+    box-shadow: var(--shadow-sm);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.faq-search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+}
+
+.faq-filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.faq-filter-tab {
+    background: #FFFFFF;
+    color: var(--dark);
+    border: 1.5px solid rgba(26, 98, 232, 0.18);
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.faq-filter-tab:hover {
+    background: rgba(26, 98, 232, 0.06);
+    color: #1A62E8;
+    border-color: #1A62E8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(26, 98, 232, 0.18);
+}
+
+.faq-filter-tab.active {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: var(--btn-primary-shadow);
+    text-shadow: 0 1px 2px rgba(11, 44, 120, 0.4);
+}
+
+.faq-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.faq-group-title {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(13, 110, 253, 0.15);
+}
+
+.faq-item {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.faq-item:hover {
+    border-color: rgba(13, 110, 253, 0.3);
+}
+
+.faq-question {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark);
+    gap: 16px;
+    user-select: none;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s var(--ease-out), padding 0.35s var(--ease-out);
+    color: var(--text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 24px 20px 24px;
+    max-height: 300px;
+}

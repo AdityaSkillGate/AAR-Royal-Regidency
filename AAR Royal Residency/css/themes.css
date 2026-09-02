@@ -1,0 +1,146 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star Luxury Resort Theme System
+   Palette:
+   --primary: #0D6EFD (Royal Azure / Electric Blue)
+   --secondary: #00B894 (Emerald Mint / Turquoise)
+   --accent: #FFB703 (Warm Amber / Luxury Gold)
+   --neutral: #F8F9FA (Crisp Light Canvas / Platinum White)
+   --dark: #1E293B (Midnight Deep Slate / Navy)
+   ================================================================ */
+
+:root {
+    /* Core Theme Colors */
+    --primary: #0D6EFD;
+    --primary-rgb: 13, 110, 253;
+    --primary-dark: #0a58ca;
+    --primary-light: #3d8bfd;
+
+    --secondary: #00B894;
+    --secondary-rgb: 0, 184, 148;
+    --secondary-dark: #008f72;
+    --secondary-light: #55efc4;
+
+    --accent: #FFB703;
+    --accent-rgb: 255, 183, 3;
+    --accent-dark: #fb8500;
+    --accent-light: #ffd166;
+
+    --neutral: #F8F9FA;
+    --neutral-rgb: 248, 249, 250;
+    --neutral-100: #F1F5F9;
+    --neutral-200: #E2E8F0;
+    --neutral-300: #CBD5E1;
+
+    --dark: #1E293B;
+    --dark-rgb: 30, 41, 59;
+    --dark-deep: #0F172A;
+    --dark-surface: #1E293B;
+    --dark-card: #243248;
+
+    --white: #FFFFFF;
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+
+    /* Luxury Gradients */
+    --primary-gradient: linear-gradient(135deg, #1A62E8 0%, #0E4BC4 50%, #0B3CA0 100%);
+    --secondary-gradient: linear-gradient(135deg, #00B894 0%, #009E7E 50%, #008066 100%);
+    --accent-gradient: linear-gradient(135deg, #F5BE4E 0%, #E5A32B 50%, #C7820B 100%);
+    --gold-gradient: linear-gradient(135deg, #F5BE4E 0%, #E5A32B 50%, #C7820B 100%);
+    --dark-gradient: linear-gradient(145deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+    --hero-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.7) 60%, rgba(15, 23, 42, 0.95) 100%);
+    --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
+    --mesh-gradient: radial-gradient(at 0% 0%, rgba(26, 98, 232, 0.15) 0px, transparent 50%),
+                         radial-gradient(at 100% 0%, rgba(0, 184, 148, 0.12) 0px, transparent 50%),
+                         radial-gradient(at 100% 100%, rgba(245, 190, 78, 0.1) 0px, transparent 50%),
+                         radial-gradient(at 0% 100%, rgba(26, 98, 232, 0.08) 0px, transparent 50%);
+
+    /* 5-Star Luxury Button Design Tokens */
+    --btn-primary-bg: linear-gradient(135deg, #1A62E8 0%, #0E4BC4 50%, #0B3CA0 100%);
+    --btn-primary-hover: linear-gradient(135deg, #2A72F8 0%, #1555D8 50%, #0E46B8 100%);
+    --btn-primary-shadow: 0 8px 24px -4px rgba(26, 98, 232, 0.42), 0 4px 8px -2px rgba(15, 23, 42, 0.12);
+    --btn-primary-shadow-hover: 0 12px 30px -4px rgba(26, 98, 232, 0.55), 0 6px 12px -2px rgba(15, 23, 42, 0.16);
+
+    --btn-accent-bg: linear-gradient(135deg, #F5BE4E 0%, #E5A32B 50%, #C7820B 100%);
+    --btn-accent-hover: linear-gradient(135deg, #FBD06E 0%, #EDB13D 50%, #D48E12 100%);
+    --btn-accent-shadow: 0 8px 24px -4px rgba(229, 163, 43, 0.45), 0 4px 8px -2px rgba(15, 23, 42, 0.12);
+    --btn-accent-shadow-hover: 0 12px 32px -4px rgba(229, 163, 43, 0.6), 0 6px 14px -2px rgba(15, 23, 42, 0.18);
+
+    --btn-secondary-bg: linear-gradient(135deg, #00B894 0%, #009E7E 50%, #008066 100%);
+    --btn-secondary-hover: linear-gradient(135deg, #10C9A5 0%, #00AE8B 50%, #008F72 100%);
+    --btn-secondary-shadow: 0 8px 24px -4px rgba(0, 184, 148, 0.4);
+    --btn-secondary-shadow-hover: 0 12px 30px -4px rgba(0, 184, 148, 0.55);
+
+    --btn-wa-bg: linear-gradient(135deg, #25D366 0%, #1EBE5D 50%, #128C7E 100%);
+    --btn-wa-hover: linear-gradient(135deg, #32E675 0%, #22D066 50%, #159F8F 100%);
+    --btn-wa-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.45);
+    --btn-wa-shadow-hover: 0 12px 32px -4px rgba(37, 211, 102, 0.6);
+
+    /* Apple-Level Glassmorphism & UI Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-bg-hover: rgba(255, 255, 255, 0.98);
+    --glass-dark: rgba(15, 23, 42, 0.85);
+    --glass-dark-hover: rgba(30, 41, 59, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-border-dark: rgba(255, 255, 255, 0.1);
+    --glass-border-primary: rgba(26, 98, 232, 0.2);
+
+    /* Shadows & Elevations */
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+    --shadow-xl: 0 24px 60px rgba(15, 23, 42, 0.16);
+    --shadow-glow-primary: 0 8px 30px rgba(26, 98, 232, 0.35);
+    --shadow-glow-secondary: 0 8px 30px rgba(0, 184, 148, 0.28);
+    --shadow-glow-accent: 0 8px 30px rgba(245, 190, 78, 0.35);
+
+    /* Page Theme Tokens */
+    --page-accent: var(--primary);
+    --page-accent-dark: var(--primary-dark);
+    --page-hero-overlay: rgba(15, 23, 42, 0.72);
+    --page-badge-color: var(--primary);
+    --page-section-bg: var(--neutral);
+    --page-btn-hover: #0E4BC4;
+    --page-card-border: rgba(26, 98, 232, 0.12);
+    --page-card-shadow-hover: rgba(26, 98, 232, 0.18);
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-pill: 9999px;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition: all 0.35s var(--ease-out);
+    --transition-fast: all 0.2s ease;
+    --transition-slow: all 0.6s var(--ease-out);
+}
+
+/* Page Theme Baseline - Unified 5-Star Luxury Resort Style */
+body.page-home,
+body.page-rooms,
+body.page-restaurant,
+body.page-facilities,
+body.page-attractions,
+body.page-gallery,
+body.page-contact,
+body.page-about,
+body.page-reviews,
+body.page-offers,
+body.page-faq,
+body.page-privacy,
+body.page-terms {
+    --page-accent: var(--primary);
+    --page-accent-dark: var(--primary-dark);
+    --page-hero-overlay: rgba(15, 23, 42, 0.72);
+    --page-badge-color: var(--primary);
+    --page-section-bg: var(--neutral);
+    --page-btn-hover: #0E4BC4;
+    --page-card-border: rgba(26, 98, 232, 0.12);
+    --page-card-shadow-hover: rgba(26, 98, 232, 0.18);
+    background-color: var(--neutral);
+    color: var(--dark);
+}

@@ -1,0 +1,187 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star Guest Reviews & Ratings Styles
+   ================================================================ */
+
+.rating-overview-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+    .rating-overview-card {
+        grid-template-columns: 1fr 1.6fr;
+    }
+}
+
+.rating-big-score {
+    text-align: center;
+    padding-right: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 767px) {
+    .rating-big-score {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-bottom: 24px;
+    }
+}
+
+.rating-big-score .score {
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: var(--primary);
+    font-family: 'Cinzel', serif;
+    line-height: 1;
+}
+
+.rating-big-score .stars {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin: 8px 0;
+}
+
+.rating-big-score .count {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Rating Progress Bars */
+.rating-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rating-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rating-label {
+    width: 140px;
+    font-size: 0.88rem;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.rating-progress-bg {
+    flex-grow: 1;
+    height: 8px;
+    background: var(--neutral-200);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+
+.rating-progress-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-pill);
+    transition: width 1s var(--ease-out);
+}
+
+.rating-score-val {
+    width: 32px;
+    font-size: 0.88rem;
+    color: var(--dark);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Filter Tabs */
+.reviews-filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.review-filter-btn {
+    background: #FFFFFF;
+    color: var(--dark);
+    border: 1.5px solid rgba(26, 98, 232, 0.18);
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.review-filter-btn:hover {
+    background: rgba(26, 98, 232, 0.06);
+    color: #1A62E8;
+    border-color: #1A62E8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(26, 98, 232, 0.18);
+}
+
+.review-filter-btn.active {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: var(--btn-primary-shadow);
+    text-shadow: 0 1px 2px rgba(11, 44, 120, 0.4);
+}
+
+/* Review Cards Grid */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.review-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(13, 110, 253, 0.12);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.review-stars {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.review-text {
+    font-size: 0.96rem;
+    color: var(--dark);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-author {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

@@ -1,0 +1,121 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star Fine Dining & Restaurant Styles
+   ================================================================ */
+
+.restaurant-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .restaurant-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.restaurant-intro-text h3 {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--dark);
+    margin-bottom: 18px;
+}
+
+.restaurant-intro-img {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    height: 380px;
+}
+
+.restaurant-intro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.restaurant-intro-img:hover img {
+    transform: scale(1.06);
+}
+
+/* Split Veg and Non-Veg Menu Columns */
+.menu-split-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+}
+
+@media (min-width: 992px) {
+    .menu-split-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.menu-column {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    padding: 36px 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.menu-column.veg {
+    border-top: 4px solid var(--secondary);
+}
+
+.menu-column.non-veg {
+    border-top: 4px solid var(--primary);
+}
+
+.menu-column h3 {
+    font-size: 1.45rem;
+    margin-bottom: 24px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    gap: 16px;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.menu-item-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.menu-item-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.menu-item-price {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--primary);
+    white-space: nowrap;
+}

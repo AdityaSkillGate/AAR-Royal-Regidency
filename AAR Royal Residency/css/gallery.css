@@ -1,0 +1,131 @@
+/* ================================================================
+   AAR Royal Residency - Modern 5-Star Masonry Gallery
+   Interactive Filtering, 3D Hover Overlays & Lightbox
+   ================================================================ */
+
+/* Gallery Category Filter Pills */
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.gallery-tab {
+    background: #FFFFFF;
+    color: var(--dark);
+    border: 1.5px solid rgba(26, 98, 232, 0.18);
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.gallery-tab:hover {
+    background: rgba(26, 98, 232, 0.06);
+    border-color: #1A62E8;
+    color: #1A62E8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(26, 98, 232, 0.18);
+}
+
+.gallery-tab.active {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: var(--btn-primary-shadow);
+    transform: translateY(-2px);
+    text-shadow: 0 1px 2px rgba(11, 44, 120, 0.4);
+}
+
+/* Gallery Masonry Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    height: 280px;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    background: var(--dark-deep);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), opacity 0.4s ease;
+}
+
+.gallery-item.hide {
+    display: none;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease-out);
+}
+
+.gallery-overlay svg {
+    width: 38px;
+    height: 38px;
+    stroke: var(--accent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition: transform 0.35s var(--ease-out);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(13, 110, 253, 0.3);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .gallery-overlay svg {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 2px;
+    font-family: 'Cinzel', serif;
+}
+
+.gallery-overlay p {
+    font-size: 0.86rem;
+    color: var(--secondary-light);
+}

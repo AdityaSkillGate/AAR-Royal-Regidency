@@ -1,0 +1,759 @@
+/* ================================================================
+   AAR Royal Residency - Modern 5-Star Luxury Glassmorphic Navbar
+   Apple-Level Blur, Elegant Typography, Flexbox Alignment & Responsive
+   ================================================================ */
+
+/* Header Wrapper & Glassmorphic Container */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header Container Width Distribution */
+.header-container .container {
+    max-width: 1560px;
+    width: 102%;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 2.5vw, 36px);
+}
+
+/* Header Scrolled Elevation State */
+.header-container.scrolled {
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(13, 110, 253, 0.25);
+}
+
+/* Master Navbar Flexbox Layout */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(12px, 1.8vw, 30px);
+    width: 100%;
+    padding: 14px 0;
+    transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-wrap: nowrap;
+}
+
+.header-container.scrolled .navbar {
+    padding: 9px 0;
+}
+
+/* ================================================================
+   1. Brand Logo & Title Alignment
+   ================================================================ */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+    user-select: none;
+    min-width: max-content;
+}
+
+.brand-logo img {
+    height: 46px;
+    width: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.header-container.scrolled .brand-logo img {
+    height: 40px;
+    width: 40px;
+}
+
+.brand-logo:hover img {
+    transform: scale(1.05);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: 1.18rem;
+    color: var(--white);
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.brand-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.64rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 2px;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+/* ================================================================
+   2. Desktop Navigation Menu & Centering
+   ================================================================ */
+#main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 8px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: clamp(6px, 1.1vw, 16 px);
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.nav-menu > li {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: rgba(255, 255, 255, 0.86);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.90rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 7px 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1.3;
+    border: 1px solid transparent;
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-pill);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+/* Active Nav State */
+.nav-link.active {
+    color: #38bdf8;
+    font-weight: 600;
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.28);
+}
+
+.nav-link.active::after {
+    width: 70%;
+    background: #38bdf8;
+}
+
+/* Mobile-only CTA in drawer (hidden on desktop) */
+.mobile-only-cta {
+    display: none;
+}
+
+/* ================================================================
+   3. Dropdown Menu (Rooms -> Restaurant, Facilities)
+   ================================================================ */
+.nav-item-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-chevron {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    stroke: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+}
+
+.nav-item-dropdown:hover .dropdown-chevron,
+.nav-item-dropdown.open .dropdown-chevron {
+    transform: rotate(180deg);
+    stroke: var(--white);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 230px;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(13, 110, 253, 0.3);
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    z-index: 1050;
+    pointer-events: none;
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: rgba(13, 110, 253, 0.2);
+    color: var(--white);
+    padding-left: 24px;
+}
+
+/* ================================================================
+   4. Header Actions (Language Switcher & Book Now CTA)
+   ================================================================ */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Language Switcher Pill */
+.lang-switch-container {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-pill);
+    padding: 3px;
+    gap: 3px;
+    height: 38px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.80rem;
+    font-weight: 600;
+    padding: 0 12px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.lang-btn:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lang-btn.active {
+    background: var(--btn-primary-bg);
+    color: var(--white);
+    font-weight: 700;
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 8px rgba(26, 98, 232, 0.45);
+}
+
+.lang-divider {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.75rem;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+/* Header Book Now CTA */
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-cta .btn {
+    height: 38px;
+    padding: 0 20px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.header-cta .btn:hover {
+    box-shadow: 0 8px 24px rgba(26, 98, 232, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* ================================================================
+   5. Hamburger Toggle Button (Mobile)
+   ================================================================ */
+.nav-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    z-index: 1100;
+    padding: 7px 9px;
+    height: 38px;
+    width: 42px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+}
+
+/* Mobile Nav Open state for toggle */
+.nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+    background-color: var(--accent);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+    background-color: var(--accent);
+}
+
+/* ================================================================
+   6. Responsive Layout Adjustments & Breakpoints
+   ================================================================ */
+
+/* Medium Desktop & Large Laptop Screens (1101px - 1320px) */
+@media (max-width: 1320px) and (min-width: 1101px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    #main-nav {
+        margin: 0 4px;
+    }
+
+    .nav-menu {
+        gap: 6px;
+    }
+
+    .nav-link {
+        font-size: 0.83rem;
+        padding: 6px 7px;
+    }
+
+    .brand-name {
+        font-size: 1.08rem;
+    }
+
+    .brand-logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .lang-btn {
+        padding: 0 9px;
+        font-size: 0.76rem;
+    }
+
+    .header-cta .btn {
+        padding: 0 14px;
+        font-size: 0.78rem;
+    }
+}
+
+/* Mobile & Tablet Drawer Mode (<= 1100px) */
+@media (max-width: 1100px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        max-width: 86vw;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 85px 22px 40px 22px;
+        gap: 8px;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+        border-left: 1px solid rgba(13, 110, 253, 0.25);
+        z-index: 1050;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+        display: block;
+    }
+
+    .nav-link {
+        font-size: 1.0rem;
+        padding: 12px 14px;
+        width: 100%;
+        justify-content: space-between;
+        border-radius: var(--radius-sm);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        background: rgba(0, 0, 0, 0.35);
+        border: none;
+        border-left: 2px solid var(--primary);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 6px 0 6px 12px;
+        margin: 6px 0 10px 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        pointer-events: auto;
+    }
+
+    .nav-item-dropdown.open .nav-dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        color: rgba(255, 255, 255, 0.85);
+        padding: 9px 12px;
+        font-size: 0.92rem;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item.active {
+        background-color: rgba(13, 110, 253, 0.15);
+        color: var(--primary-light);
+        padding-left: 16px;
+    }
+
+    /* Mobile CTA inside Drawer */
+    .mobile-only-cta {
+        display: block;
+        margin-top: 14px;
+        padding-top: 10px;
+    }
+
+    .mobile-only-cta .btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 0.90rem;
+    }
+}
+
+/* Tablet Portrait & Mobile Top Bar Optimization (<= 768px) */
+@media (max-width: 768px) {
+    .header-cta {
+        display: none;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        gap: 8px;
+    }
+
+    .brand-logo {
+        gap: 8px;
+    }
+
+    .brand-logo img {
+        height: 38px;
+        width: 38px;
+    }
+
+    .brand-name {
+        font-size: 1.0rem;
+    }
+
+    .brand-sub {
+        font-size: 0.58rem;
+        letter-spacing: 0.10em;
+    }
+
+    .lang-switch-container {
+        height: 34px;
+        padding: 2px;
+    }
+
+    .lang-btn {
+        height: 28px;
+        padding: 0 8px;
+        font-size: 0.74rem;
+    }
+
+    .nav-toggle {
+        height: 34px;
+        width: 36px;
+        padding: 6px 7px;
+    }
+
+    .nav-toggle span {
+        width: 18px;
+    }
+}
+
+/* ================================================================
+   7. Dedicated Tamil Language Navbar Optimization (html[lang="ta"])
+   Targeted layout rules applied ONLY when Tamil is selected
+   English layout remains 100% untouched
+   ================================================================ */
+
+html[lang="ta"] .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(10px, 1.4vw, 24px);
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+/* 1. Fixed & Protected Brand Logo Section */
+html[lang="ta"] .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    min-width: max-content;
+    white-space: nowrap;
+}
+
+html[lang="ta"] .brand-text {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+html[lang="ta"] .brand-name {
+    white-space: nowrap;
+}
+
+html[lang="ta"] .brand-sub {
+    white-space: nowrap;
+}
+
+/* 2. Isolated Navigation Area & Centering */
+html[lang="ta"] #main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 clamp(4px, 0.8vw, 12px);
+}
+
+html[lang="ta"] .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: clamp(4px, 0.8vw, 12px);
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+html[lang="ta"] .nav-menu > li {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* 3. Scaled & Spaced Tamil Navigation Links (No Wrapping, No Overlap) */
+html[lang="ta"] .nav-link {
+    font-size: clamp(0.78rem, 0.86vw, 0.86rem);
+    padding: 6px clamp(4px, 0.6vw, 8px);
+    white-space: nowrap;
+    letter-spacing: 0;
+    flex-shrink: 0;
+    line-height: 1.3;
+}
+
+html[lang="ta"] .nav-link.active {
+    font-weight: 600;
+}
+
+/* 4. Language Switcher & Booking Button Fixed Alignment */
+html[lang="ta"] .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    min-width: max-content;
+}
+
+html[lang="ta"] .lang-switch-container {
+    flex-shrink: 0;
+}
+
+html[lang="ta"] .header-cta {
+    flex-shrink: 0;
+}
+
+html[lang="ta"] .header-cta .btn {
+    font-size: 0.82rem;
+    padding: 0 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    height: 38px;
+}
+
+/* 5. Responsive Breakpoint Optimization for Tamil on Medium Desktops / Laptops (1101px - 1360px) */
+@media (max-width: 1360px) and (min-width: 1101px) {
+    html[lang="ta"] .navbar {
+        gap: 8px;
+    }
+
+    html[lang="ta"] #main-nav {
+        margin: 0 2px;
+    }
+
+    html[lang="ta"] .nav-menu {
+        gap: clamp(2px, 0.45vw, 6px);
+    }
+
+    html[lang="ta"] .nav-link {
+        font-size: 0.76rem;
+        padding: 5px 4px;
+    }
+
+    html[lang="ta"] .brand-name {
+        font-size: 1.08rem;
+    }
+
+    html[lang="ta"] .brand-logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    html[lang="ta"] .header-cta .btn {
+        padding: 0 12px;
+        font-size: 0.76rem;
+    }
+}
+

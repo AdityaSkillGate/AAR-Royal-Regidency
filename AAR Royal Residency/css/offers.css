@@ -1,0 +1,134 @@
+/* ================================================================
+   AAR Royal Residency — Modern 5-Star Special Offers Styles
+   ================================================================ */
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.offer-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.offer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.offer-tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: var(--gold-gradient);
+    color: #1E293B;
+    font-size: 0.75rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.offer-img-wrapper {
+    height: 220px;
+    background: var(--dark-deep);
+    overflow: hidden;
+}
+
+.offer-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.offer-card:hover .offer-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.offer-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.offer-discount {
+    color: var(--secondary-dark);
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 6px;
+}
+
+.offer-title {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.offer-desc {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.offer-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.offer-perks li {
+    font-size: 0.9rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-perks svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--secondary);
+    flex-shrink: 0;
+}
+
+.offer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.offer-code-box {
+    background: rgba(26, 98, 232, 0.08);
+    border: 1px dashed #1A62E8;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: #0E4BC4;
+    font-weight: 600;
+}
